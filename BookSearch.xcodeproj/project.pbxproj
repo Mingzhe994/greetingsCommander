@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170AA3F51CE31A0B004B60FA /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 170AA3E81CE31986004B60FA /* libSDWebImage.a */; };
 		17F098A61CE1A6AB009ABE02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F098A51CE1A6AB009ABE02 /* AppDelegate.swift */; };
 		17F098A81CE1A6AB009ABE02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F098A71CE1A6AB009ABE02 /* ViewController.swift */; };
 		17F098AB1CE1A6AB009ABE02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17F098A91CE1A6AB009ABE02 /* Main.storyboard */; };
@@ -15,9 +16,54 @@
 		17F098B31CE1A6AB009ABE02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17F098B11CE1A6AB009ABE02 /* LaunchScreen.storyboard */; };
 		17F098BE1CE1A6AB009ABE02 /* BookSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F098BD1CE1A6AB009ABE02 /* BookSearchTests.swift */; };
 		17F098C91CE1A6AB009ABE02 /* BookSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F098C81CE1A6AB009ABE02 /* BookSearchUITests.swift */; };
+		17F098DB1CE1AA10009ABE02 /* UserCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F098DA1CE1AA10009ABE02 /* UserCameraViewController.swift */; };
+		17F098DF1CE1EC20009ABE02 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F098DE1CE1EC20009ABE02 /* BookDetailViewController.swift */; };
+		17F098F41CE2FAD5009ABE02 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F098F31CE2FAD5009ABE02 /* ImageIO.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		170AA3E71CE31986004B60FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 170AA3DE1CE31986004B60FA /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53761325155AD0D5005750A4;
+			remoteInfo = SDWebImage;
+		};
+		170AA3E91CE31986004B60FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 170AA3DE1CE31986004B60FA /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 537D95C117ECC1FE0097C263;
+			remoteInfo = "SDWebImage+WebP";
+		};
+		170AA3EB1CE31986004B60FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 170AA3DE1CE31986004B60FA /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 531041E0157EAFA400BBABC3;
+			remoteInfo = "SDWebImage+MKAnnotation";
+		};
+		170AA3ED1CE31986004B60FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 170AA3DE1CE31986004B60FA /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4A2CADFF1AB4BB5300B6BC39;
+			remoteInfo = WebImage;
+		};
+		170AA3EF1CE31986004B60FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 170AA3DE1CE31986004B60FA /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00733A4C1BC487C000A5A117;
+			remoteInfo = "WebImage tvOS";
+		};
+		170AA3F31CE319F9004B60FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 170AA3DE1CE31986004B60FA /* SDWebImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53761307155AD0D5005750A4;
+			remoteInfo = SDWebImage;
+		};
 		17F098BA1CE1A6AB009ABE02 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 17F0989A1CE1A6AB009ABE02 /* Project object */;
@@ -35,6 +81,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		170AA3DE1CE31986004B60FA /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = "../SDWebImage-master/SDWebImage.xcodeproj"; sourceTree = "<group>"; };
+		170AA3F61CE31A5B004B60FA /* BookSearch-Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookSearch-Bridge-Header.h"; sourceTree = "<group>"; };
 		17F098A21CE1A6AB009ABE02 /* BookSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F098A51CE1A6AB009ABE02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17F098A71CE1A6AB009ABE02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +97,9 @@
 		17F098C41CE1A6AB009ABE02 /* BookSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F098C81CE1A6AB009ABE02 /* BookSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchUITests.swift; sourceTree = "<group>"; };
 		17F098CA1CE1A6AB009ABE02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17F098DA1CE1AA10009ABE02 /* UserCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCameraViewController.swift; sourceTree = "<group>"; };
+		17F098DE1CE1EC20009ABE02 /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		17F098F31CE2FAD5009ABE02 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				170AA3F51CE31A0B004B60FA /* libSDWebImage.a in Frameworks */,
+				17F098F41CE2FAD5009ABE02 /* ImageIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,9 +129,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		170AA3DF1CE31986004B60FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				170AA3E81CE31986004B60FA /* libSDWebImage.a */,
+				170AA3EA1CE31986004B60FA /* libSDWebImage+WebP.a */,
+				170AA3EC1CE31986004B60FA /* libSDWebImage+MKAnnotation.a */,
+				170AA3EE1CE31986004B60FA /* WebImage.framework */,
+				170AA3F01CE31986004B60FA /* WebImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		17F098991CE1A6AB009ABE02 = {
 			isa = PBXGroup;
 			children = (
+				170AA3F61CE31A5B004B60FA /* BookSearch-Bridge-Header.h */,
+				170AA3DE1CE31986004B60FA /* SDWebImage.xcodeproj */,
+				17F098F31CE2FAD5009ABE02 /* ImageIO.framework */,
 				17F098A41CE1A6AB009ABE02 /* BookSearch */,
 				17F098BC1CE1A6AB009ABE02 /* BookSearchTests */,
 				17F098C71CE1A6AB009ABE02 /* BookSearchUITests */,
@@ -101,6 +169,8 @@
 			children = (
 				17F098A51CE1A6AB009ABE02 /* AppDelegate.swift */,
 				17F098A71CE1A6AB009ABE02 /* ViewController.swift */,
+				17F098DA1CE1AA10009ABE02 /* UserCameraViewController.swift */,
+				17F098DE1CE1EC20009ABE02 /* BookDetailViewController.swift */,
 				17F098A91CE1A6AB009ABE02 /* Main.storyboard */,
 				17F098AF1CE1A6AB009ABE02 /* Assets.xcassets */,
 				17F098B11CE1A6AB009ABE02 /* LaunchScreen.storyboard */,
@@ -142,6 +212,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				170AA3F41CE319F9004B60FA /* PBXTargetDependency */,
 			);
 			name = BookSearch;
 			productName = BookSearch;
@@ -221,6 +292,12 @@
 			mainGroup = 17F098991CE1A6AB009ABE02;
 			productRefGroup = 17F098A31CE1A6AB009ABE02 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 170AA3DF1CE31986004B60FA /* Products */;
+					ProjectRef = 170AA3DE1CE31986004B60FA /* SDWebImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				17F098A11CE1A6AB009ABE02 /* BookSearch */,
@@ -229,6 +306,44 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		170AA3E81CE31986004B60FA /* libSDWebImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDWebImage.a;
+			remoteRef = 170AA3E71CE31986004B60FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		170AA3EA1CE31986004B60FA /* libSDWebImage+WebP.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSDWebImage+WebP.a";
+			remoteRef = 170AA3E91CE31986004B60FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		170AA3EC1CE31986004B60FA /* libSDWebImage+MKAnnotation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSDWebImage+MKAnnotation.a";
+			remoteRef = 170AA3EB1CE31986004B60FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		170AA3EE1CE31986004B60FA /* WebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = WebImage.framework;
+			remoteRef = 170AA3ED1CE31986004B60FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		170AA3F01CE31986004B60FA /* WebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = WebImage.framework;
+			remoteRef = 170AA3EF1CE31986004B60FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		17F098A01CE1A6AB009ABE02 /* Resources */ = {
@@ -262,9 +377,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F098DB1CE1AA10009ABE02 /* UserCameraViewController.swift in Sources */,
 				17F098A81CE1A6AB009ABE02 /* ViewController.swift in Sources */,
 				17F098A61CE1A6AB009ABE02 /* AppDelegate.swift in Sources */,
 				17F098AE1CE1A6AB009ABE02 /* BookSearch.xcdatamodeld in Sources */,
+				17F098DF1CE1EC20009ABE02 /* BookDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +404,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		170AA3F41CE319F9004B60FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SDWebImage;
+			targetProxy = 170AA3F31CE319F9004B60FA /* PBXContainerItemProxy */;
+		};
 		17F098BB1CE1A6AB009ABE02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 17F098A11CE1A6AB009ABE02 /* BookSearch */;
@@ -408,8 +530,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BookSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "Stuart-Zhang.BookSearch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BookSearch-Bridge-Header.h";
 			};
 			name = Debug;
 		};
@@ -419,8 +543,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BookSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = "Stuart-Zhang.BookSearch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BookSearch-Bridge-Header.h";
 			};
 			name = Release;
 		};
@@ -489,6 +615,7 @@
 				17F098CF1CE1A6AB009ABE02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17F098D01CE1A6AB009ABE02 /* Build configuration list for PBXNativeTarget "BookSearchTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +624,7 @@
 				17F098D21CE1A6AB009ABE02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17F098D31CE1A6AB009ABE02 /* Build configuration list for PBXNativeTarget "BookSearchUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +633,7 @@
 				17F098D51CE1A6AB009ABE02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
