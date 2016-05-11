@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		170AA3F51CE31A0B004B60FA /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 170AA3E81CE31986004B60FA /* libSDWebImage.a */; };
+		170AA3F91CE32AE3004B60FA /* BookDetail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170AA3F71CE32AE3004B60FA /* BookDetail+CoreDataProperties.swift */; };
+		170AA3FA1CE32AE3004B60FA /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170AA3F81CE32AE3004B60FA /* BookDetail.swift */; };
+		170AA3FF1CE32BA0004B60FA /* BookDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170AA3FE1CE32BA0004B60FA /* BookDataModel.swift */; };
+		170AA4011CE36D83004B60FA /* BookListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170AA4001CE36D83004B60FA /* BookListTableViewController.swift */; };
+		170AA4031CE36DA3004B60FA /* BookListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170AA4021CE36DA3004B60FA /* BookListTableViewCell.swift */; };
 		17F098A61CE1A6AB009ABE02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F098A51CE1A6AB009ABE02 /* AppDelegate.swift */; };
 		17F098A81CE1A6AB009ABE02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F098A71CE1A6AB009ABE02 /* ViewController.swift */; };
 		17F098AB1CE1A6AB009ABE02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17F098A91CE1A6AB009ABE02 /* Main.storyboard */; };
@@ -83,6 +88,11 @@
 /* Begin PBXFileReference section */
 		170AA3DE1CE31986004B60FA /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = "../SDWebImage-master/SDWebImage.xcodeproj"; sourceTree = "<group>"; };
 		170AA3F61CE31A5B004B60FA /* BookSearch-Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookSearch-Bridge-Header.h"; sourceTree = "<group>"; };
+		170AA3F71CE32AE3004B60FA /* BookDetail+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BookDetail+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		170AA3F81CE32AE3004B60FA /* BookDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
+		170AA3FE1CE32BA0004B60FA /* BookDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDataModel.swift; sourceTree = "<group>"; };
+		170AA4001CE36D83004B60FA /* BookListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListTableViewController.swift; sourceTree = "<group>"; };
+		170AA4021CE36DA3004B60FA /* BookListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListTableViewCell.swift; sourceTree = "<group>"; };
 		17F098A21CE1A6AB009ABE02 /* BookSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F098A51CE1A6AB009ABE02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17F098A71CE1A6AB009ABE02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,12 +151,31 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		17F098991CE1A6AB009ABE02 = {
+		170AA3FB1CE32B1C004B60FA /* CoreDataNModel */ = {
+			isa = PBXGroup;
+			children = (
+				170AA3F71CE32AE3004B60FA /* BookDetail+CoreDataProperties.swift */,
+				170AA3F81CE32AE3004B60FA /* BookDetail.swift */,
+				170AA3FE1CE32BA0004B60FA /* BookDataModel.swift */,
+			);
+			name = CoreDataNModel;
+			sourceTree = "<group>";
+		};
+		170AA3FD1CE32B59004B60FA /* Framework */ = {
 			isa = PBXGroup;
 			children = (
 				170AA3F61CE31A5B004B60FA /* BookSearch-Bridge-Header.h */,
 				170AA3DE1CE31986004B60FA /* SDWebImage.xcodeproj */,
 				17F098F31CE2FAD5009ABE02 /* ImageIO.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+		17F098991CE1A6AB009ABE02 = {
+			isa = PBXGroup;
+			children = (
+				170AA3FD1CE32B59004B60FA /* Framework */,
+				170AA3FB1CE32B1C004B60FA /* CoreDataNModel */,
 				17F098A41CE1A6AB009ABE02 /* BookSearch */,
 				17F098BC1CE1A6AB009ABE02 /* BookSearchTests */,
 				17F098C71CE1A6AB009ABE02 /* BookSearchUITests */,
@@ -172,10 +201,12 @@
 				17F098DA1CE1AA10009ABE02 /* UserCameraViewController.swift */,
 				17F098DE1CE1EC20009ABE02 /* BookDetailViewController.swift */,
 				17F098A91CE1A6AB009ABE02 /* Main.storyboard */,
+				170AA4001CE36D83004B60FA /* BookListTableViewController.swift */,
 				17F098AF1CE1A6AB009ABE02 /* Assets.xcassets */,
 				17F098B11CE1A6AB009ABE02 /* LaunchScreen.storyboard */,
 				17F098B41CE1A6AB009ABE02 /* Info.plist */,
 				17F098AC1CE1A6AB009ABE02 /* BookSearch.xcdatamodeld */,
+				170AA4021CE36DA3004B60FA /* BookListTableViewCell.swift */,
 			);
 			path = BookSearch;
 			sourceTree = "<group>";
@@ -381,7 +412,12 @@
 				17F098A81CE1A6AB009ABE02 /* ViewController.swift in Sources */,
 				17F098A61CE1A6AB009ABE02 /* AppDelegate.swift in Sources */,
 				17F098AE1CE1A6AB009ABE02 /* BookSearch.xcdatamodeld in Sources */,
+				170AA3FF1CE32BA0004B60FA /* BookDataModel.swift in Sources */,
+				170AA4011CE36D83004B60FA /* BookListTableViewController.swift in Sources */,
 				17F098DF1CE1EC20009ABE02 /* BookDetailViewController.swift in Sources */,
+				170AA3FA1CE32AE3004B60FA /* BookDetail.swift in Sources */,
+				170AA4031CE36DA3004B60FA /* BookListTableViewCell.swift in Sources */,
+				170AA3F91CE32AE3004B60FA /* BookDetail+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

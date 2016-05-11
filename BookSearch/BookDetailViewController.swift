@@ -11,6 +11,11 @@ import UIKit
 
 class BookDetailViewController:UIViewController  {
     var receiveISBN:String = ""
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    //var newBook = BookDetail()
+    var myBookList: BookDataModel?
+    var recieveBookID:NSInteger?
+    var imagelinks: [String]?
     
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var bookTitle: UILabel!
@@ -24,15 +29,38 @@ class BookDetailViewController:UIViewController  {
 
         let ISBNcode = receiveISBN
          
+        myBookList = BookDataModel(context: managedObjectContext)
         
         self.title = "Book detail"
         
-        let saveButton : UIBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BookDetailViewController.backToRootView))
-        
-        self.navigationItem.leftBarButtonItem = saveButton
-        
-        self.getBookInfo(ISBNcode)
+        if ISBNcode == ""{
+            let searchID = String(recieveBookID!)
+            let bookDetail = myBookList?.searchFunction(searchID)
+            
+            let tmp = bookDetail![0]
+            bookTitle.text = tmp.bookTitle
+            bookSubTitle.text = tmp.bookSubTitle
+            publishYear.text = tmp.publishYear
+            bookDescription.text = tmp.bookDescription
+            bookAuthorName.text = tmp.authorName
+            
+            if tmp.imagePath != "noData"{
+                let fileUrl = NSURL(string: tmp.imagePath!)
+                bookImageView.sd_setImageWithURL(fileUrl)
+            }else{
+                bookImageView.image = UIImage(named: tmp.imagePath!)
+            }
+            
+            
+        }else{
+            let backButton : UIBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BookDetailViewController.backToRootView))
+            
+            self.navigationItem.leftBarButtonItem = backButton
+            
 
+            self.getBookInfo(ISBNcode) 
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,50 +68,6 @@ class BookDetailViewController:UIViewController  {
     }
     
     func getBookInfo(isbn: String){
-        /*let urlString = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn
-        if let url = NSURL(string: urlString) {
-            NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {data, _, error -> Void in
-                if let e = error {
-                    print(e.localizedDescription)
-                } else {
-                    print(url)
-                    if let data = data, jsonResult = try? NSJSONSerialization.JSONObjectWithData(data, options: []), arrayOfTitles = jsonResult.valueForKeyPath("items.volumeInfo.title") as? [String] {
-                        
-                        
-                        let titles = arrayOfTitles.joinWithSeparator(", ")
-                        
-                        print(titles)
-                        
-                        dispatch_async(dispatch_get_main_queue(), {
-                                self.bookTitle.text = titles
-                        })
-
-                        //self.bookSubTitle.text = jsonResult.valueForKey("items.volumeInfo.subtitle") as? String
-                        
-                        //let arrayOfAuthors = jsonResult.valueForKey("items.volumeInfo.authors") as? [String]
-                        //self.bookAuthorName.text = arrayOfAuthors?.joinWithSeparator(",")
-                        
-                        //self.publishYear.text = jsonResult.valueForKey("items.volumeInfo.publishedDate") as? String
-                        //self.bookDescription.text = jsonResult.valueForKey("items.volumeInfo.description") as? String
-                        
-                        //let imagelinks = jsonResult.valueForKey("items.volumeInfo.imageLinks.smallThumbnail") as? String
-                        //self.bookImageView.image = UIImage(
-                        
-                        
-                    } else {
-                        //GlobalConstants.AlertMessage.displayAlertMessage("Error fetching data from barcode, please try again.", view: self)
-                        /*
-                        let cannotFindThisBook = UIAlertController(title: "", message: "Sorry I can't get any information of this book T_T", preferredStyle: .Alert)
-                        let doneAction = UIAlertAction(title: "Done", style: .Cancel, handler: {(action) in})
-                        cannotFindThisBook.addAction(doneAction)
-                        self.presentViewController(cannotFindThisBook, animated: true, completion: nil)*/
-
-                    }
-                }
-            }).resume()
-        }
-        */
-        
 
         let apiBaseURL = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn
         let urlComponents = NSURL(string: apiBaseURL)
@@ -120,8 +104,6 @@ class BookDetailViewController:UIViewController  {
                     var arrayOfAuthors: [String] = [String]()
                     var publishDate: [String]?
                     var description: [String]?
-                    var imagelinks: [String]?
-
                     
                     do {
                         let anyObj:NSDictionary = try NSJSONSerialization.JSONObjectWithData(d, options: []) as! NSDictionary
@@ -142,7 +124,7 @@ class BookDetailViewController:UIViewController  {
                         publishDate = anyObj.valueForKeyPath("items.volumeInfo.publishedDate") as? [String] ?? ["No data"]
                         description = anyObj.valueForKeyPath("items.volumeInfo.description") as? [String] ?? ["No data"]
                         
-                        imagelinks = anyObj.valueForKeyPath("items.volumeInfo.imageLinks.smallThumbnail") as? [String] ?? ["noData"]
+                        self.imagelinks = anyObj.valueForKeyPath("items.volumeInfo.imageLinks.smallThumbnail") as? [String] ?? ["noData"]
                         //self.bookImageView.image = UIImage(
                         //print(imagelinks)
                     } catch let error as NSError {
@@ -160,13 +142,12 @@ class BookDetailViewController:UIViewController  {
                         self.bookDescription.text = description![0]
                         self.bookAuthorName.text = arrayOfAuthors.joinWithSeparator("\n")
                         
-                        if imagelinks![0] != "noData"{
-                            let imageURL = NSURL(string: imagelinks![0])
+                        if self.imagelinks![0] != "noData"{
+                            let imageURL = NSURL(string: self.imagelinks![0])
                             self.bookImageView.sd_setImageWithURL(imageURL)
                         }else{
-                            self.bookImageView.image = UIImage(named: imagelinks![0])
+                            self.bookImageView.image = UIImage(named: self.imagelinks![0])
                         }
-
                     })
                     
                     
@@ -178,9 +159,39 @@ class BookDetailViewController:UIViewController  {
             
         }
         //This is important
+        let saveButton : UIBarButtonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BookDetailViewController.saveBookDetail))
+        
+        self.navigationItem.rightBarButtonItem = saveButton
+        
         task.resume()
         
     }
+    
+    func saveBookDetail(tmpBook: BookDetail){
+        //myBookList?.createNewBook(tmpBook)
+        let tmp  = myBookList?.searchFunction("")
+        let ID = (tmp?.count)! + 1
+        let title = bookTitle.text
+        let subTitle = bookSubTitle.text
+        let year = publishYear.text
+        let path = imagelinks![0]
+        let description = bookDescription.text
+        let aName = bookAuthorName.text
+        
+        myBookList?.createNewBook(ID, bookTitle: title!, bookSubTitle: subTitle!, publishYear: year!, imagePath: path, bookDescription: description, authorName: aName)
+        
+        let createBookList = UIAlertController(title: "", message: "Added a book to your list!", preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "Done", style: .Cancel, handler: {
+            _ in
+            self.backToRootView()
+        })
+        
+        createBookList.addAction(cancelAction)
+        
+        self.presentViewController(createBookList, animated: true, completion: nil)
+    }
+    
+    
     
     func backToRootView(){
         self.navigationController?.popToRootViewControllerAnimated(true)
@@ -196,6 +207,6 @@ class BookDetailViewController:UIViewController  {
         }
         return nil
     }
-
+    
 
 }
