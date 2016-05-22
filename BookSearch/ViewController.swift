@@ -16,8 +16,11 @@ class ViewController: UIViewController{
     @IBAction func fromCamera(sender: AnyObject) {
     }
     
+    @IBAction func libraryLogin(sender: AnyObject) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Books Search & login"
         
      
     }

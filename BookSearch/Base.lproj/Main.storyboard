@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T3B-yb-IDt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T3B-yb-IDt">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -34,16 +34,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejc-ix-sTL">
-                                <rect key="frame" x="20" y="95" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejc-ix-sTL">
+                                <rect key="frame" x="226" y="135" width="148" height="30"/>
+                                <state key="normal" title="Scan book by camera"/>
                                 <connections>
                                     <action selector="fromCamera:" destination="m0e-Ag-Ja1" eventType="touchUpInside" id="U91-qY-9yp"/>
                                     <segue destination="hdl-Vg-ED5" kind="show" id="VM3-0s-9ry"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kE1-cx-rPG">
-                                <rect key="frame" x="20" y="307" width="83" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLC-b7-T5k">
+                                <rect key="frame" x="255" y="265" width="90" height="30"/>
+                                <state key="normal" title="Library Login"/>
+                                <connections>
+                                    <segue destination="tas-YE-9uZ" kind="show" id="DdY-YZ-uUa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kE1-cx-rPG">
+                                <rect key="frame" x="259" y="200" width="83" height="30"/>
                                 <state key="normal" title="Favorite List"/>
                                 <connections>
                                     <segue destination="Dla-YC-9Eg" kind="show" id="TWB-MC-t1c"/>
@@ -51,12 +58,134 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ejc-ix-sTL" firstAttribute="centerX" secondItem="Yc4-aQ-PdR" secondAttribute="centerX" id="6Ht-Wn-qJ8"/>
+                            <constraint firstItem="XLC-b7-T5k" firstAttribute="centerX" secondItem="Yc4-aQ-PdR" secondAttribute="centerX" id="Lm0-zO-d8d"/>
+                            <constraint firstItem="XLC-b7-T5k" firstAttribute="top" secondItem="kE1-cx-rPG" secondAttribute="bottom" constant="35" id="RX4-VQ-Vi3"/>
+                            <constraint firstItem="ejc-ix-sTL" firstAttribute="centerY" secondItem="Yc4-aQ-PdR" secondAttribute="centerY" constant="-150" id="ucP-dP-CGC"/>
+                            <constraint firstItem="kE1-cx-rPG" firstAttribute="top" secondItem="ejc-ix-sTL" secondAttribute="bottom" constant="35" id="zPb-7s-hqG"/>
+                            <constraint firstItem="kE1-cx-rPG" firstAttribute="centerX" secondItem="Yc4-aQ-PdR" secondAttribute="centerX" id="zpx-Zi-oyV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AQi-qa-9B6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h6c-aY-Hvj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="992" y="418"/>
+        </scene>
+        <!--Library Book Table View Controller-->
+        <scene sceneID="sLg-5S-Bsu">
+            <objects>
+                <tableViewController id="ZJE-xd-RNG" customClass="LibraryBookTableViewController" customModule="BookSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" id="sgE-uk-fWw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="libraryList" textLabel="3kp-3c-fhC" detailTextLabel="hrp-Wq-riF" rowHeight="73" style="IBUITableViewCellStyleSubtitle" id="bOS-VE-3ek">
+                                <rect key="frame" x="0.0" y="92" width="600" height="73"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bOS-VE-3ek" id="Y8m-9k-pcj">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="72.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Book name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3kp-3c-fhC">
+                                            <rect key="frame" x="15" y="20" width="81.5" height="19.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Return Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hrp-Wq-riF">
+                                            <rect key="frame" x="15" y="39.5" width="63" height="13.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ZJE-xd-RNG" id="0Pm-if-UQ7"/>
+                            <outlet property="delegate" destination="ZJE-xd-RNG" id="RMA-pc-MCv"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hqx-cT-qht" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1040" y="-946"/>
+        </scene>
+        <!--Library Book View Controller-->
+        <scene sceneID="bpd-pO-qon">
+            <objects>
+                <viewController id="tas-YE-9uZ" customClass="LibraryBookViewController" customModule="BookSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yqh-hq-eeQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="pdd-Ea-OQu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ScK-zj-Ew3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VNK-PJ-GIc">
+                                <rect key="frame" x="50" y="185" width="500" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5a-A8-SeU">
+                                <rect key="frame" x="279" y="345" width="42" height="30"/>
+                                <state key="normal" title="Log in"/>
+                                <connections>
+                                    <action selector="loginButton:" destination="tas-YE-9uZ" eventType="touchUpInside" id="uzf-1L-m9g"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Student" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o1G-DR-3Ua">
+                                <rect key="frame" x="50" y="265" width="500" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Name ：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tg0-lb-1BN">
+                                <rect key="frame" x="11" y="156" width="132" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Barcode ：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOZ-WZ-GKO">
+                                <rect key="frame" x="11" y="230" width="151" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="g5a-A8-SeU" firstAttribute="centerX" secondItem="ScK-zj-Ew3" secondAttribute="centerX" id="0DM-YS-1Je"/>
+                            <constraint firstItem="kOZ-WZ-GKO" firstAttribute="top" secondItem="VNK-PJ-GIc" secondAttribute="bottom" constant="15" id="1fg-Ob-BBV"/>
+                            <constraint firstItem="VNK-PJ-GIc" firstAttribute="centerY" secondItem="ScK-zj-Ew3" secondAttribute="centerY" constant="-100" id="2ou-GG-emE"/>
+                            <constraint firstItem="g5a-A8-SeU" firstAttribute="top" secondItem="o1G-DR-3Ua" secondAttribute="bottom" constant="50" id="3Z2-lF-yvQ"/>
+                            <constraint firstItem="VNK-PJ-GIc" firstAttribute="centerX" secondItem="ScK-zj-Ew3" secondAttribute="centerX" id="6xe-cQ-SEf"/>
+                            <constraint firstItem="kOZ-WZ-GKO" firstAttribute="leading" secondItem="tg0-lb-1BN" secondAttribute="leading" id="Non-KE-gN4"/>
+                            <constraint firstItem="tg0-lb-1BN" firstAttribute="leading" secondItem="ScK-zj-Ew3" secondAttribute="leadingMargin" constant="-9" id="TFd-ov-oyW"/>
+                            <constraint firstItem="VNK-PJ-GIc" firstAttribute="leading" secondItem="ScK-zj-Ew3" secondAttribute="leadingMargin" constant="30" id="WNv-R4-0Lv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VNK-PJ-GIc" secondAttribute="trailing" constant="30" id="h95-0k-0E6"/>
+                            <constraint firstItem="o1G-DR-3Ua" firstAttribute="top" secondItem="VNK-PJ-GIc" secondAttribute="bottom" constant="50" id="iYk-Vy-sxA"/>
+                            <constraint firstItem="o1G-DR-3Ua" firstAttribute="centerX" secondItem="ScK-zj-Ew3" secondAttribute="centerX" id="ixn-o3-dE4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="o1G-DR-3Ua" secondAttribute="trailing" constant="30" id="nsq-Uy-UWJ"/>
+                            <constraint firstItem="o1G-DR-3Ua" firstAttribute="leading" secondItem="ScK-zj-Ew3" secondAttribute="leadingMargin" constant="30" id="s9h-ex-GbY"/>
+                            <constraint firstItem="VNK-PJ-GIc" firstAttribute="top" secondItem="tg0-lb-1BN" secondAttribute="bottom" constant="8" id="tul-Ko-PWF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="o1G-DR-3Ua" id="Hjv-gQ-Ae1"/>
+                        <outlet property="userNameTextField" destination="VNK-PJ-GIc" id="08f-fb-Zd8"/>
+                        <segue destination="ZJE-xd-RNG" kind="show" identifier="showBorrowingBooks" id="ey8-rJ-Smp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hd2-7T-JrE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008" y="-268"/>
         </scene>
         <!--User Camera View Controller-->
         <scene sceneID="HyL-V0-XfC">

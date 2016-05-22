@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 class BookDetailViewController:UIViewController  {
     var receiveISBN:String = ""
