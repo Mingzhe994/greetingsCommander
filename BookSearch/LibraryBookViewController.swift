@@ -10,25 +10,22 @@ import Foundation
 
 import UIKit
 import AVFoundation
+import Kanna
 
 class LibraryBookViewController: UIViewController{
+
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBAction func loginButton(sender: AnyObject) {
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.title = "Log In"
-        
-        
         // Do any additional setup after loading the view, typically from a nib.
         let apiBaseURL = "https://iii.library.uow.edu.au/patroninfo"
         let urlComponents = NSURLComponents(string: apiBaseURL)!
         
-        let numQuery: NSURLQueryItem = NSURLQueryItem(name: "name", value: "Mingzhe Zhang")
-        let rndQuery: NSURLQueryItem = NSURLQueryItem(name: "code", value:"100")
+        let name = userNameTextField.text
+        let code = passwordTextField.text
+        let numQuery: NSURLQueryItem = NSURLQueryItem(name: "name", value: name)
+        let rndQuery: NSURLQueryItem = NSURLQueryItem(name: "code", value: code)
         
         urlComponents.queryItems = [numQuery, rndQuery]
         let url = urlComponents.URL!
@@ -64,13 +61,31 @@ class LibraryBookViewController: UIViewController{
                     print("It worked")
                     
                     let resultString:String = NSString(data: d, encoding:NSUTF8StringEncoding)! as String
-                    
-                    print("RESULT IS:")
-                    print(resultString)
+                    //print(resultString)
+
                     
                     //You MUST perform UI updates on the main thread:
                     dispatch_async(dispatch_get_main_queue(), {
                         //self.label.text = resultString
+                        var errorCheck = false
+                        if let doc = Kanna.HTML(html: resultString, encoding: NSUTF8StringEncoding) {
+                            
+                            for link in doc.css("p, Strong") {
+                                
+                                if link.text!.rangeOfString("Sorry, the information you submitted was invalid. Please try again.") != nil {
+                                    print(link.text)
+                                    errorCheck = true
+                                }
+                            }
+                            
+                            
+                        }
+                        
+                        if errorCheck{
+                            self.errorInput();
+                        }else{
+                            self.performSegueWithIdentifier("showBorrowingBooks", sender: self)
+                        }
                     })
                     
                     
@@ -83,12 +98,33 @@ class LibraryBookViewController: UIViewController{
         }
         //This is important
         task.resume()
-        
 
-        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Login"
+
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func errorInput(){
+        let loginError = UIAlertController(title: "", message: "Sorry, the information you submitted was invalid. Please try again.", preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Done", style: .Cancel, handler: nil)
+        
+        loginError.addAction(cancelAction)
+        self.presentViewController(loginError, animated: true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "showDetailFromStore" {
+            let nav = segue.destinationViewController as! LibraryBookTableViewController
+        }
     }
 }
