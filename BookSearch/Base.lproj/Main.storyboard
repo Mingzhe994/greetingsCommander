@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T3B-yb-IDt">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T3B-yb-IDt">
+>>>>>>> origin/master
 =======
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T3B-yb-IDt">
 >>>>>>> origin/master
@@ -40,21 +44,28 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejc-ix-sTL">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <rect key="frame" x="226" y="135" width="148" height="30"/>
                                 <state key="normal" title="Scan book by camera"/>
 =======
+=======
+>>>>>>> origin/master
                                 <rect key="frame" x="260" y="95" width="80" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="XmT-uJ-7Hf"/>
                                     <constraint firstAttribute="height" constant="50" id="cMu-in-Xm0"/>
                                 </constraints>
                                 <state key="normal" title="Scan"/>
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
                                 <connections>
                                     <action selector="fromCamera:" destination="m0e-Ag-Ja1" eventType="touchUpInside" id="U91-qY-9yp"/>
                                     <segue destination="hdl-Vg-ED5" kind="show" id="VM3-0s-9ry"/>
                                 </connections>
                             </button>
+<<<<<<< HEAD
 <<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLC-b7-T5k">
                                 <rect key="frame" x="255" y="265" width="90" height="30"/>
@@ -66,11 +77,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kE1-cx-rPG">
                                 <rect key="frame" x="259" y="200" width="83" height="30"/>
 =======
+=======
+>>>>>>> origin/master
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kE1-cx-rPG">
                                 <rect key="frame" x="250" y="240" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Edu-gj-gxf"/>
                                 </constraints>
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
                                 <state key="normal" title="Favorite List"/>
                                 <connections>
@@ -81,6 +97,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <constraint firstItem="ejc-ix-sTL" firstAttribute="centerX" secondItem="Yc4-aQ-PdR" secondAttribute="centerX" id="6Ht-Wn-qJ8"/>
                             <constraint firstItem="XLC-b7-T5k" firstAttribute="centerX" secondItem="Yc4-aQ-PdR" secondAttribute="centerX" id="Lm0-zO-d8d"/>
                             <constraint firstItem="XLC-b7-T5k" firstAttribute="top" secondItem="kE1-cx-rPG" secondAttribute="bottom" constant="35" id="RX4-VQ-Vi3"/>
@@ -89,6 +106,8 @@
                             <constraint firstItem="kE1-cx-rPG" firstAttribute="centerX" secondItem="Yc4-aQ-PdR" secondAttribute="centerX" id="zpx-Zi-oyV"/>
                         </constraints>
 =======
+=======
+>>>>>>> origin/master
                             <constraint firstItem="kE1-cx-rPG" firstAttribute="top" secondItem="Yc4-aQ-PdR" secondAttribute="topMargin" constant="120" id="0Cc-R6-yeT"/>
                             <constraint firstItem="kE1-cx-rPG" firstAttribute="top" secondItem="Yc4-aQ-PdR" secondAttribute="topMargin" constant="240" id="NZo-rF-B4a"/>
                             <constraint firstItem="ejc-ix-sTL" firstAttribute="centerX" secondItem="Yc4-aQ-PdR" secondAttribute="centerX" id="btA-QB-wHk"/>
@@ -102,6 +121,9 @@
                                 <exclude reference="lRD-TF-6GS"/>
                             </mask>
                         </variation>
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
                     </view>
                     <navigationItem key="navigationItem" id="AQi-qa-9B6"/>
