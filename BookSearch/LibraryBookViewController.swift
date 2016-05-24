@@ -24,6 +24,8 @@ class LibraryBookViewController: UIViewController{
         
         let name = userNameTextField.text
         let code = passwordTextField.text
+        
+        
         let numQuery: NSURLQueryItem = NSURLQueryItem(name: "name", value: name)
         let rndQuery: NSURLQueryItem = NSURLQueryItem(name: "code", value: code)
         

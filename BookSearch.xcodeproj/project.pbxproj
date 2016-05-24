@@ -12,6 +12,7 @@
 		170AA3FF1CE32BA0004B60FA /* BookDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170AA3FE1CE32BA0004B60FA /* BookDataModel.swift */; };
 		170AA4011CE36D83004B60FA /* BookListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170AA4001CE36D83004B60FA /* BookListTableViewController.swift */; };
 		170AA4031CE36DA3004B60FA /* BookListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170AA4021CE36DA3004B60FA /* BookListTableViewCell.swift */; };
+		172F45ED1CF4C9FB00F6CE9C /* LibraryBookListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172F45EC1CF4C9FB00F6CE9C /* LibraryBookListTableViewCell.swift */; };
 		179E926F1CF05AAB00C84953 /* LibraryBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E926E1CF05AAB00C84953 /* LibraryBookViewController.swift */; };
 		179E92761CF05ADC00C84953 /* LibraryBookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E92751CF05ADC00C84953 /* LibraryBookTableViewController.swift */; };
 		17F098A61CE1A6AB009ABE02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F098A51CE1A6AB009ABE02 /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 		170AA3FE1CE32BA0004B60FA /* BookDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDataModel.swift; sourceTree = "<group>"; };
 		170AA4001CE36D83004B60FA /* BookListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListTableViewController.swift; sourceTree = "<group>"; };
 		170AA4021CE36DA3004B60FA /* BookListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListTableViewCell.swift; sourceTree = "<group>"; };
+		172F45EC1CF4C9FB00F6CE9C /* LibraryBookListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryBookListTableViewCell.swift; sourceTree = "<group>"; };
 		179E926E1CF05AAB00C84953 /* LibraryBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryBookViewController.swift; sourceTree = "<group>"; };
 		179E92751CF05ADC00C84953 /* LibraryBookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryBookTableViewController.swift; sourceTree = "<group>"; };
 		17F098A21CE1A6AB009ABE02 /* BookSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +176,7 @@
 			children = (
 				179E926E1CF05AAB00C84953 /* LibraryBookViewController.swift */,
 				179E92751CF05ADC00C84953 /* LibraryBookTableViewController.swift */,
+				172F45EC1CF4C9FB00F6CE9C /* LibraryBookListTableViewCell.swift */,
 			);
 			name = UniLibrary;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				17F098A61CE1A6AB009ABE02 /* AppDelegate.swift in Sources */,
 				17F098AE1CE1A6AB009ABE02 /* BookSearch.xcdatamodeld in Sources */,
 				170AA3FF1CE32BA0004B60FA /* BookDataModel.swift in Sources */,
+				172F45ED1CF4C9FB00F6CE9C /* LibraryBookListTableViewCell.swift in Sources */,
 				179E92761CF05ADC00C84953 /* LibraryBookTableViewController.swift in Sources */,
 				170AA4011CE36D83004B60FA /* BookListTableViewController.swift in Sources */,
 				17F098DF1CE1EC20009ABE02 /* BookDetailViewController.swift in Sources */,
