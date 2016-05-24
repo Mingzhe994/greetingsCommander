@@ -20,9 +20,7 @@ class ViewController: UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Books Search & login"
-        
-     
+        self.title = "Books Search"
     }
     
     override func didReceiveMemoryWarning() {
