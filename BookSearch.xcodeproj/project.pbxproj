@@ -167,6 +167,55 @@
 				170AA3FE1CE32BA0004B60FA /* BookDataModel.swift */,
 			);
 			name = CoreDataNModel;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		172F45E11CF4075400F6CE9C /* InterFace */ = {
+			isa = PBXGroup;
+			children = (
+				17F098A91CE1A6AB009ABE02 /* Main.storyboard */,
+				17F098B11CE1A6AB009ABE02 /* LaunchScreen.storyboard */,
+			);
+			name = InterFace;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		172F45E41CF407F900F6CE9C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				172F45E71CF408F800F6CE9C /* UniLibrary */,
+				172F45E61CF408C200F6CE9C /* ConnectDevice */,
+				172F45E51CF4082600F6CE9C /* ScanBook */,
+				17F098A71CE1A6AB009ABE02 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		172F45E51CF4082600F6CE9C /* ScanBook */ = {
+			isa = PBXGroup;
+			children = (
+				17F098DE1CE1EC20009ABE02 /* BookDetailViewController.swift */,
+				170AA4001CE36D83004B60FA /* BookListTableViewController.swift */,
+				170AA4021CE36DA3004B60FA /* BookListTableViewCell.swift */,
+			);
+			name = ScanBook;
+			sourceTree = "<group>";
+		};
+		172F45E61CF408C200F6CE9C /* ConnectDevice */ = {
+			isa = PBXGroup;
+			children = (
+				17F098DA1CE1AA10009ABE02 /* UserCameraViewController.swift */,
+			);
+			name = ConnectDevice;
+			sourceTree = "<group>";
+		};
+		172F45E71CF408F800F6CE9C /* UniLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				179E926E1CF05AAB00C84953 /* LibraryBookViewController.swift */,
+				179E92751CF05ADC00C84953 /* LibraryBookTableViewController.swift */,
+			);
+			name = UniLibrary;
 			sourceTree = "<group>";
 		};
 <<<<<<< HEAD
@@ -186,7 +235,6 @@
 		17F098991CE1A6AB009ABE02 = {
 			isa = PBXGroup;
 			children = (
-				170AA3FB1CE32B1C004B60FA /* CoreDataNModel */,
 				17F098A41CE1A6AB009ABE02 /* BookSearch */,
 				17F098BC1CE1A6AB009ABE02 /* BookSearchTests */,
 				17F098C71CE1A6AB009ABE02 /* BookSearchUITests */,
@@ -209,19 +257,13 @@
 		17F098A41CE1A6AB009ABE02 /* BookSearch */ = {
 			isa = PBXGroup;
 			children = (
+				172F45E41CF407F900F6CE9C /* Controller */,
+				170AA3FB1CE32B1C004B60FA /* CoreDataNModel */,
+				172F45E11CF4075400F6CE9C /* InterFace */,
 				17F098A51CE1A6AB009ABE02 /* AppDelegate.swift */,
-				17F098A71CE1A6AB009ABE02 /* ViewController.swift */,
-				17F098DA1CE1AA10009ABE02 /* UserCameraViewController.swift */,
-				17F098DE1CE1EC20009ABE02 /* BookDetailViewController.swift */,
-				17F098A91CE1A6AB009ABE02 /* Main.storyboard */,
-				170AA4001CE36D83004B60FA /* BookListTableViewController.swift */,
 				17F098AF1CE1A6AB009ABE02 /* Assets.xcassets */,
-				17F098B11CE1A6AB009ABE02 /* LaunchScreen.storyboard */,
 				17F098B41CE1A6AB009ABE02 /* Info.plist */,
 				17F098AC1CE1A6AB009ABE02 /* BookSearch.xcdatamodeld */,
-				170AA4021CE36DA3004B60FA /* BookListTableViewCell.swift */,
-				179E926E1CF05AAB00C84953 /* LibraryBookViewController.swift */,
-				179E92751CF05ADC00C84953 /* LibraryBookTableViewController.swift */,
 			);
 			path = BookSearch;
 			sourceTree = "<group>";
@@ -677,6 +719,7 @@
 				17F098AA1CE1A6AB009ABE02 /* Base */,
 			);
 			name = Main.storyboard;
+			path = BookSearch;
 			sourceTree = "<group>";
 		};
 		17F098B11CE1A6AB009ABE02 /* LaunchScreen.storyboard */ = {
@@ -685,6 +728,7 @@
 				17F098B21CE1A6AB009ABE02 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = BookSearch;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

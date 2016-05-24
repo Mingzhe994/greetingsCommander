@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BookSearch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAp-VX-ijo">
-                                <rect key="frame" x="220" y="120" width="160" height="36"/>
+                                <rect key="frame" x="220" y="170" width="160" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -32,7 +32,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WAp-VX-ijo" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="100" id="QV7-Wx-mTd"/>
+                            <constraint firstItem="WAp-VX-ijo" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="150" id="QV7-Wx-mTd"/>
                             <constraint firstItem="sHe-Kg-UvY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="eOV-01-9u9"/>
                             <constraint firstItem="WAp-VX-ijo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ist-AA-s5k"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="sHe-Kg-UvY" secondAttribute="bottom" constant="30" id="xGl-UJ-mVR"/>
