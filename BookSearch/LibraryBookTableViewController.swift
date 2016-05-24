@@ -12,14 +12,18 @@ class LibraryBookTableViewController: UITableViewController {
     var receiveBookList: [String]?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         self.title = "Checkout List"
         
         let backButton : UIBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BookDetailViewController.backToRootView))
         
         self.navigationItem.leftBarButtonItem = backButton
 
-        
+        if receiveBookList?.count == 0{
+            receiveBookList?.append("There is no book need to return")
+            receiveBookList?.append("")
+        }else {
+            print("dam")
+        }
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -27,6 +31,8 @@ class LibraryBookTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        super.viewDidLoad()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,10 +54,16 @@ class LibraryBookTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("libraryList", forIndexPath: indexPath) as! LibraryBookListTableViewCell
+        
         // Configure the cell...
-
+        let title = receiveBookList![indexPath.row*2]
+        let dueDate = receiveBookList![indexPath.row*2 + 1 ]
+        
+        cell.bookTitle.text = title
+        cell.date.text = dueDate
+        
+        
         return cell
     }
  

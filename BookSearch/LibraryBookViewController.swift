@@ -14,6 +14,7 @@ import Kanna
 
 class LibraryBookViewController: UIViewController{
 
+    var sendBookList:[String]?
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -22,9 +23,12 @@ class LibraryBookViewController: UIViewController{
         let apiBaseURL = "https://iii.library.uow.edu.au/patroninfo"
         let urlComponents = NSURLComponents(string: apiBaseURL)!
         
-        let name = userNameTextField.text
-        let code = passwordTextField.text
+        let name = "Mingzhe Zhang"//userNameTextField.text
+        let code = "20009101798905"//passwordTextField.text
         
+        if(name == "" || code == ""){
+            errorInput()
+        }
         
         let numQuery: NSURLQueryItem = NSURLQueryItem(name: "name", value: name)
         let rndQuery: NSURLQueryItem = NSURLQueryItem(name: "code", value: code)
@@ -69,7 +73,6 @@ class LibraryBookViewController: UIViewController{
                 dispatch_async(dispatch_get_main_queue(), {
                     
                         self.getBorrowIngBookList(resultString)
-                        self.performSegueWithIdentifier("showBorrowingBooks", sender: self)
                     
                 })
                 return
@@ -126,7 +129,7 @@ class LibraryBookViewController: UIViewController{
     //this method are only fetch the number string in html like
     //a href="/patroninfo/1265222/items"
     
-    func fetchPageNumber(origin: String) -> String {
+    func fetchPageNumber(origin: String, check :Int, format: Character) -> String {
         var tmp = String()
         var startFectch = 0;
         for c in origin.characters{
@@ -135,7 +138,7 @@ class LibraryBookViewController: UIViewController{
                 startFectch += 1
             }
             
-            if startFectch == 2 && c != "/"{
+            if startFectch == check && c != format{
                 tmp += String(c)
             }
         }
@@ -146,7 +149,7 @@ class LibraryBookViewController: UIViewController{
     //get borrowing book list
     func getBorrowIngBookList(origin: String)  {
         //self.label.text = resultString
-        var bookList = [String: String]()
+        var bookList = [String]();
         var keyLink = String()
         var errorCheck = false
         let doc = Kanna.HTML(html: origin, encoding: NSUTF8StringEncoding)
@@ -168,7 +171,7 @@ class LibraryBookViewController: UIViewController{
             for link in doc!.xpath("//a | //href"){
                     
                 if findKeyWords(link.toHTML!, keyWords1: "patroninfo", keyWords2: "items"){
-                    keyLink = fetchPageNumber(link.toHTML!)
+                    keyLink = fetchPageNumber(link.toHTML!,check: 2, format: "/")
                         //print(keyLink)
                 }
             }
@@ -206,15 +209,59 @@ class LibraryBookViewController: UIViewController{
                 print(r.statusCode)
                 
                 if (r.statusCode == 200){
-                    print("It worked")
+                    print("Book borrowing status page works")
                     
                     
-                    print(resultString)
+                    //print(resultString)
                     //print(arrayOfAuthors)
+                    
+                    let doc = Kanna.HTML(html: resultString, encoding: NSUTF8StringEncoding)
+                    if doc != nil{
+                        
+                        for link in doc!.css("tbody, tr") {
+                            
+                            if link.className == "patFuncEntry" {
+                                var title: String?
+                                var dueDate: String?
+
+                                for childLink in link.css("td"){
+                                  
+                                    if childLink.className == "patFuncTitle"{
+                                        title = self.fetchPageNumber(childLink.text!, check: 0, format: "/")
+                                    }else if childLink.className == "patFuncStatus"{
+                                        print(childLink.text)
+                                        dueDate = self.fetchPageNumber(childLink.toHTML!, check: 2 , format: " ")
+                                    }
+                                    
+                                    
+                                    if title != nil && dueDate != nil{
+                                        bookList.append(title!)
+                                        bookList.append(dueDate!)
+                                        print(dueDate);
+                                        title = nil
+                                        dueDate = nil
+                                    }
+                                    
+                                    
+                                }
+        
+                            }
+                        }
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     //You MUST perform UI updates on the main thread:
                     dispatch_async(dispatch_get_main_queue(), {
-                        
+                        self.sendBookList = bookList
+                        self.performSegueWithIdentifier("showBorrowingBooks", sender: self)
+
                     })
                     
                     
@@ -237,8 +284,9 @@ class LibraryBookViewController: UIViewController{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "showDetailFromStore" {
+        if segue.identifier == "showBorrowingBooks" {
             let nav = segue.destinationViewController as! LibraryBookTableViewController
+            nav.receiveBookList = sendBookList
         }
     }
 }

@@ -150,7 +150,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VNK-PJ-GIc">
-                                <rect key="frame" x="50" y="185" width="500" height="30"/>
+                                <rect key="frame" x="25" y="185" width="550" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -162,18 +162,18 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Student" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o1G-DR-3Ua">
-                                <rect key="frame" x="50" y="265" width="500" height="30"/>
+                                <rect key="frame" x="25" y="265" width="550" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Name ：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tg0-lb-1BN">
-                                <rect key="frame" x="11" y="156" width="132" height="21"/>
+                                <rect key="frame" x="25" y="156" width="132" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Student Barcode ：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOZ-WZ-GKO">
-                                <rect key="frame" x="11" y="230" width="151" height="21"/>
+                                <rect key="frame" x="25" y="230" width="151" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -187,13 +187,13 @@
                             <constraint firstItem="g5a-A8-SeU" firstAttribute="top" secondItem="o1G-DR-3Ua" secondAttribute="bottom" constant="50" id="3Z2-lF-yvQ"/>
                             <constraint firstItem="VNK-PJ-GIc" firstAttribute="centerX" secondItem="ScK-zj-Ew3" secondAttribute="centerX" id="6xe-cQ-SEf"/>
                             <constraint firstItem="kOZ-WZ-GKO" firstAttribute="leading" secondItem="tg0-lb-1BN" secondAttribute="leading" id="Non-KE-gN4"/>
-                            <constraint firstItem="tg0-lb-1BN" firstAttribute="leading" secondItem="ScK-zj-Ew3" secondAttribute="leadingMargin" constant="-9" id="TFd-ov-oyW"/>
-                            <constraint firstItem="VNK-PJ-GIc" firstAttribute="leading" secondItem="ScK-zj-Ew3" secondAttribute="leadingMargin" constant="30" id="WNv-R4-0Lv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VNK-PJ-GIc" secondAttribute="trailing" constant="30" id="h95-0k-0E6"/>
+                            <constraint firstItem="tg0-lb-1BN" firstAttribute="leading" secondItem="ScK-zj-Ew3" secondAttribute="leadingMargin" constant="5" id="TFd-ov-oyW"/>
+                            <constraint firstItem="VNK-PJ-GIc" firstAttribute="leading" secondItem="ScK-zj-Ew3" secondAttribute="leadingMargin" constant="5" id="WNv-R4-0Lv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VNK-PJ-GIc" secondAttribute="trailing" constant="5" id="h95-0k-0E6"/>
                             <constraint firstItem="o1G-DR-3Ua" firstAttribute="top" secondItem="VNK-PJ-GIc" secondAttribute="bottom" constant="50" id="iYk-Vy-sxA"/>
                             <constraint firstItem="o1G-DR-3Ua" firstAttribute="centerX" secondItem="ScK-zj-Ew3" secondAttribute="centerX" id="ixn-o3-dE4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="o1G-DR-3Ua" secondAttribute="trailing" constant="30" id="nsq-Uy-UWJ"/>
-                            <constraint firstItem="o1G-DR-3Ua" firstAttribute="leading" secondItem="ScK-zj-Ew3" secondAttribute="leadingMargin" constant="30" id="s9h-ex-GbY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="o1G-DR-3Ua" secondAttribute="trailing" constant="5" id="nsq-Uy-UWJ"/>
+                            <constraint firstItem="o1G-DR-3Ua" firstAttribute="leading" secondItem="ScK-zj-Ew3" secondAttribute="leadingMargin" constant="5" id="s9h-ex-GbY"/>
                             <constraint firstItem="VNK-PJ-GIc" firstAttribute="top" secondItem="tg0-lb-1BN" secondAttribute="bottom" constant="8" id="tul-Ko-PWF"/>
                         </constraints>
                     </view>
