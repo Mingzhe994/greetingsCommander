@@ -43,57 +43,37 @@ class LibraryBookViewController: UIViewController{
             (data, response, error) -> Void in
             
             //Something stuffed up:
-            if let e = error  {
+        if let e = error  {
                 
-                print("error")
-                print(e.localizedDescription)
+            print("error")
+            print(e.localizedDescription)
                 
-                return
+            return
                 
                 //Check for issues with the status code:
-            } else if let d = data, let r = response as? NSHTTPURLResponse{
+        } else if let d = data, let r = response as? NSHTTPURLResponse{
                 
                 
-                //perform the cast:
-                print(r.statusCode)
+            //perform the cast:
+            print(r.statusCode)
+            
+            if (r.statusCode == 200){
+                print("It worked")
                 
-                if (r.statusCode == 200){
-                    print("It worked")
+                let resultString:String = NSString(data: d, encoding:NSUTF8StringEncoding)! as String
+                //print(resultString)
                     
-                    let resultString:String = NSString(data: d, encoding:NSUTF8StringEncoding)! as String
-                    //print(resultString)
-
+                //You MUST perform UI updates on the main thread:
+                dispatch_async(dispatch_get_main_queue(), {
                     
-                    //You MUST perform UI updates on the main thread:
-                    dispatch_async(dispatch_get_main_queue(), {
-                        //self.label.text = resultString
-                        var errorCheck = false
-                        if let doc = Kanna.HTML(html: resultString, encoding: NSUTF8StringEncoding) {
-                            
-                            for link in doc.css("p, Strong") {
-                                
-                                if link.text!.rangeOfString("Sorry, the information you submitted was invalid. Please try again.") != nil {
-                                    print(link.text)
-                                    errorCheck = true
-                                }
-                            }
-                            
-                            
-                        }
-                        
-                        if errorCheck{
-                            self.errorInput();
-                        }else{
-                            self.performSegueWithIdentifier("showBorrowingBooks", sender: self)
-                        }
-                    })
+                        self.getBorrowIngBookList(resultString)
+                        self.performSegueWithIdentifier("showBorrowingBooks", sender: self)
                     
-                    
-                    
-                    return
-                }
-                
+                })
+                return
             }
+                
+        }
             
         }
         //This is important
@@ -118,6 +98,138 @@ class LibraryBookViewController: UIViewController{
         
         loginError.addAction(cancelAction)
         self.presentViewController(loginError, animated: true, completion: nil)
+    }
+    
+    /*
+    func getHtmlString(String url) -> String {
+        return ""
+    }
+     */
+    
+   // func loginUniAccount() -> String {
+     //   <#function body#>
+    //}
+
+    
+    //check the string if has two keywords inside
+    func findKeyWords(origin: String, keyWords1 :String, keyWords2 :String) -> Bool {
+        if (origin.rangeOfString(keyWords1) != nil) {
+            if (origin.rangeOfString(keyWords2) != nil){
+                return true;
+            }
+        }
+        return false;
+    }
+ 
+    //this method are only fetch the number string in html like
+    //a href="/patroninfo/1265222/items"
+    
+    func fetchPageNumber(origin: String) -> String {
+        var tmp = String()
+        var startFectch = 0;
+        for c in origin.characters{
+            
+            if(c == "/"){
+                startFectch += 1
+            }
+            
+            if startFectch == 2 && c != "/"{
+                tmp += String(c)
+            }
+        }
+        return tmp
+    }
+    
+    
+    //get borrowing book list
+    func getBorrowIngBookList(origin: String)  {
+        //self.label.text = resultString
+        var bookList = [String: String]()
+        var keyLink = String()
+        var errorCheck = false
+        let doc = Kanna.HTML(html: origin, encoding: NSUTF8StringEncoding)
+        if doc != nil{
+            
+            for link in doc!.css("p, Strong") {
+                
+                if link.text!.rangeOfString("Sorry, the information you submitted was invalid. Please try again.") != nil {
+                    print(link.text)
+                    errorCheck = true
+                }
+            }
+        }
+        
+        if errorCheck{
+            errorInput();
+        }else{
+            
+            for link in doc!.xpath("//a | //href"){
+                    
+                if findKeyWords(link.toHTML!, keyWords1: "patroninfo", keyWords2: "items"){
+                    keyLink = fetchPageNumber(link.toHTML!)
+                        //print(keyLink)
+                }
+            }
+        }
+        
+        let checkOutUrl = "https://iii.library.uow.edu.au/patroninfo/\(keyLink)/items"
+
+        let urlComponents = NSURL(string: checkOutUrl)
+        
+        let request = NSMutableURLRequest(URL: urlComponents!)
+        //request.HTTPMethod = "GET"
+        request.timeoutInterval = 5
+        request.HTTPMethod = "Get"
+        
+        print(urlComponents)
+        let session = NSURLSession.sharedSession()
+        
+        let task = session.dataTaskWithURL(urlComponents!){
+            (data, response, error) -> Void in
+            
+            //Something stuffed up:
+            if let e = error  {
+                
+                print("error")
+                print(e.localizedDescription)
+                
+                return
+                
+                //Check for issues with the status code:
+            } else if let d = data, let r = response as? NSHTTPURLResponse{
+                
+                let resultString:String = NSString(data: d, encoding:NSUTF8StringEncoding)! as String
+                
+                //perform the cast:
+                print(r.statusCode)
+                
+                if (r.statusCode == 200){
+                    print("It worked")
+                    
+                    
+                    print(resultString)
+                    //print(arrayOfAuthors)
+                    
+                    //You MUST perform UI updates on the main thread:
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                    })
+                    
+                    
+                    
+                    return
+                }
+                
+            }
+            
+        }
+        
+        //This is important
+        task.resume()
+
+        
+        //-> [String: String]
+        //return nil
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
