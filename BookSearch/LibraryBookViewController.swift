@@ -23,11 +23,12 @@ class LibraryBookViewController: UIViewController{
         let apiBaseURL = "https://iii.library.uow.edu.au/patroninfo"
         let urlComponents = NSURLComponents(string: apiBaseURL)!
         
-        let name = "Mingzhe Zhang"//userNameTextField.text
-        let code = "20009101798905"//passwordTextField.text
+        let name = userNameTextField.text//"Mingzhe Zhang"
+        let code = passwordTextField.text//"20009101798905"
         
         if(name == "" || code == ""){
             errorInput()
+            return
         }
         
         let numQuery: NSURLQueryItem = NSURLQueryItem(name: "name", value: name)
@@ -134,7 +135,7 @@ class LibraryBookViewController: UIViewController{
         var startFectch = 0;
         for c in origin.characters{
             
-            if(c == "/"){
+            if(c == format){
                 startFectch += 1
             }
             
@@ -166,6 +167,7 @@ class LibraryBookViewController: UIViewController{
         
         if errorCheck{
             errorInput();
+            return
         }else{
             
             for link in doc!.xpath("//a | //href"){
@@ -218,7 +220,7 @@ class LibraryBookViewController: UIViewController{
                     let doc = Kanna.HTML(html: resultString, encoding: NSUTF8StringEncoding)
                     if doc != nil{
                         
-                        for link in doc!.css("tbody, tr") {
+                        for link in doc!.xpath("//tbody | //tr") {
                             
                             if link.className == "patFuncEntry" {
                                 var title: String?
@@ -229,8 +231,8 @@ class LibraryBookViewController: UIViewController{
                                     if childLink.className == "patFuncTitle"{
                                         title = self.fetchPageNumber(childLink.text!, check: 0, format: "/")
                                     }else if childLink.className == "patFuncStatus"{
-                                        print(childLink.text)
-                                        dueDate = self.fetchPageNumber(childLink.toHTML!, check: 2 , format: " ")
+                                        //print(childLink.text)
+                                        dueDate = self.fetchPageNumber(childLink.text!, check: 2 , format: " ")
                                     }
                                     
                                     
@@ -248,13 +250,6 @@ class LibraryBookViewController: UIViewController{
                             }
                         }
                     }
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     
                     //You MUST perform UI updates on the main thread:
