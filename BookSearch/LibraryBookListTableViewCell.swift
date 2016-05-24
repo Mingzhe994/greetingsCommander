@@ -10,6 +10,8 @@ import UIKit
 
 class LibraryBookListTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var bookTitle: UILabel!
+    @IBOutlet weak var date: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

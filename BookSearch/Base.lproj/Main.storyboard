@@ -77,34 +77,54 @@
         <scene sceneID="sLg-5S-Bsu">
             <objects>
                 <tableViewController id="ZJE-xd-RNG" customClass="LibraryBookTableViewController" customModule="BookSearch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" id="sgE-uk-fWw">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="149" sectionHeaderHeight="28" sectionFooterHeight="28" id="sgE-uk-fWw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="libraryList" textLabel="3kp-3c-fhC" detailTextLabel="hrp-Wq-riF" rowHeight="73" style="IBUITableViewCellStyleValue1" id="bOS-VE-3ek">
-                                <rect key="frame" x="0.0" y="92" width="600" height="73"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="libraryList" rowHeight="149" id="bOS-VE-3ek" customClass="LibraryBookListTableViewCell" customModule="BookSearch" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="149"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bOS-VE-3ek" id="Y8m-9k-pcj">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="72.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="148.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Book name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3kp-3c-fhC">
-                                            <rect key="frame" x="15" y="27" width="81.5" height="19.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wu4-ms-9CN">
+                                            <rect key="frame" x="13" y="8" width="574" height="19.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Return Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hrp-Wq-riF">
-                                            <rect key="frame" x="498.5" y="27" width="86.5" height="19.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsx-oK-opX">
+                                            <rect key="frame" x="457" y="114" width="130" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="130" id="0YZ-NF-U8L"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IzZ-Zh-18W">
+                                            <rect key="frame" x="368" y="114" width="81" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Wu4-ms-9CN" firstAttribute="top" secondItem="Y8m-9k-pcj" secondAttribute="topMargin" id="IZh-Vp-5op"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="tsx-oK-opX" secondAttribute="trailing" constant="5" id="J0A-QF-J2B"/>
+                                        <constraint firstItem="tsx-oK-opX" firstAttribute="bottom" secondItem="IzZ-Zh-18W" secondAttribute="bottom" id="gI1-nM-X5L"/>
+                                        <constraint firstItem="tsx-oK-opX" firstAttribute="leading" secondItem="IzZ-Zh-18W" secondAttribute="trailing" constant="8" symbolic="YES" id="mlM-pV-PX3"/>
+                                        <constraint firstItem="Wu4-ms-9CN" firstAttribute="leading" secondItem="Y8m-9k-pcj" secondAttribute="leadingMargin" constant="5" id="q41-Qh-rKY"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Wu4-ms-9CN" secondAttribute="trailing" constant="5" id="wJy-2S-MV8"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="tsx-oK-opX" secondAttribute="bottom" constant="5.5" id="wm3-Kc-mI9"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bookTitle" destination="Wu4-ms-9CN" id="Xsi-dV-WhC"/>
+                                    <outlet property="date" destination="tsx-oK-opX" id="eSF-iY-p5Z"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
