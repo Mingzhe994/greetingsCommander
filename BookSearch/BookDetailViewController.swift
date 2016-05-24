@@ -114,17 +114,14 @@ class BookDetailViewController:UIViewController  {
                         subTitle = anyObj.valueForKeyPath("items.volumeInfo.subtitle") as? [String] ?? ["No data"]
                         
                         let a = anyObj.valueForKeyPath("items.volumeInfo.authors") as? NSArray
-                        if a != nil {
-                            for tmpa in a! {
-                                let b = tmpa as? NSArray ?? ["No data"]
-                                for tmpb in b!{
-                                    arrayOfAuthors.append(tmpb as! String)
+                        for tmpa in a! {
+                            let b = tmpa as? NSArray ?? ["No data"]
+                            for tmpb in b!{
+                               arrayOfAuthors.append(tmpb as! String)
                                 
-                                }
                             }
-                        }else{
-                            arrayOfAuthors.append("No data")
                         }
+                        
                         publishDate = anyObj.valueForKeyPath("items.volumeInfo.publishedDate") as? [String] ?? ["No data"]
                         description = anyObj.valueForKeyPath("items.volumeInfo.description") as? [String] ?? ["No data"]
                         
@@ -162,11 +159,11 @@ class BookDetailViewController:UIViewController  {
             }
             
         }
+        //This is important
         let saveButton : UIBarButtonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BookDetailViewController.saveBookDetail))
         
         self.navigationItem.rightBarButtonItem = saveButton
         
-        //This is important
         task.resume()
         
     }
