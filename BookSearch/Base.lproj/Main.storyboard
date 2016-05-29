@@ -192,7 +192,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7ik-Jf-RHc">
+                            <imageView userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg1" translatesAutoresizingMaskIntoConstraints="NO" id="7ik-Jf-RHc">
                                 <rect key="frame" x="0.0" y="-20" width="600" height="640"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VNK-PJ-GIc">
@@ -201,8 +201,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5a-A8-SeU">
-                                <rect key="frame" x="279" y="345" width="42" height="30"/>
-                                <state key="normal" title="Log in"/>
+                                <rect key="frame" x="20" y="345" width="560" height="64"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="tAl-5n-Kwx"/>
+                                </constraints>
+                                <state key="normal" title="Log in">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="loginButton:" destination="tas-YE-9uZ" eventType="touchUpInside" id="uzf-1L-m9g"/>
                                 </connections>
@@ -232,11 +238,16 @@
                             <constraint firstItem="VNK-PJ-GIc" firstAttribute="centerY" secondItem="ScK-zj-Ew3" secondAttribute="centerY" constant="-100" id="2ou-GG-emE"/>
                             <constraint firstItem="g5a-A8-SeU" firstAttribute="top" secondItem="o1G-DR-3Ua" secondAttribute="bottom" constant="50" id="3Z2-lF-yvQ"/>
                             <constraint firstItem="VNK-PJ-GIc" firstAttribute="centerX" secondItem="ScK-zj-Ew3" secondAttribute="centerX" id="6xe-cQ-SEf"/>
+                            <constraint firstItem="g5a-A8-SeU" firstAttribute="leading" secondItem="7ik-Jf-RHc" secondAttribute="trailing" constant="-575" id="I5v-jo-dEq"/>
+                            <constraint firstItem="g5a-A8-SeU" firstAttribute="leading" secondItem="ScK-zj-Ew3" secondAttribute="leadingMargin" id="Klr-PH-nxV"/>
                             <constraint firstItem="kOZ-WZ-GKO" firstAttribute="leading" secondItem="tg0-lb-1BN" secondAttribute="leading" id="Non-KE-gN4"/>
                             <constraint firstItem="tg0-lb-1BN" firstAttribute="leading" secondItem="ScK-zj-Ew3" secondAttribute="leadingMargin" constant="5" id="TFd-ov-oyW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="g5a-A8-SeU" secondAttribute="trailing" id="UGK-v0-53q"/>
                             <constraint firstItem="VNK-PJ-GIc" firstAttribute="leading" secondItem="ScK-zj-Ew3" secondAttribute="leadingMargin" constant="5" id="WNv-R4-0Lv"/>
                             <constraint firstItem="7ik-Jf-RHc" firstAttribute="top" secondItem="ScK-zj-Ew3" secondAttribute="topMargin" constant="-20" id="YQE-DC-Zqn"/>
+                            <constraint firstItem="g5a-A8-SeU" firstAttribute="leading" secondItem="7ik-Jf-RHc" secondAttribute="trailing" constant="-575" id="gGE-gf-Xw8"/>
                             <constraint firstItem="7ik-Jf-RHc" firstAttribute="leading" secondItem="ScK-zj-Ew3" secondAttribute="leadingMargin" constant="-20" id="gNW-Ki-rFc"/>
+                            <constraint firstItem="g5a-A8-SeU" firstAttribute="leading" secondItem="7ik-Jf-RHc" secondAttribute="trailing" constant="-575" id="gWZ-e2-ZCR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VNK-PJ-GIc" secondAttribute="trailing" constant="5" id="h95-0k-0E6"/>
                             <constraint firstItem="o1G-DR-3Ua" firstAttribute="top" secondItem="VNK-PJ-GIc" secondAttribute="bottom" constant="50" id="iYk-Vy-sxA"/>
                             <constraint firstItem="o1G-DR-3Ua" firstAttribute="centerX" secondItem="ScK-zj-Ew3" secondAttribute="centerX" id="ixn-o3-dE4"/>
@@ -246,6 +257,13 @@
                             <constraint firstItem="VNK-PJ-GIc" firstAttribute="top" secondItem="tg0-lb-1BN" secondAttribute="bottom" constant="8" id="tul-Ko-PWF"/>
                             <constraint firstItem="pdd-Ea-OQu" firstAttribute="top" secondItem="7ik-Jf-RHc" secondAttribute="bottom" constant="-20" id="zEh-EF-PWp"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="I5v-jo-dEq"/>
+                                <exclude reference="gGE-gf-Xw8"/>
+                                <exclude reference="gWZ-e2-ZCR"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="passwordTextField" destination="o1G-DR-3Ua" id="Hjv-gQ-Ae1"/>
