@@ -36,6 +36,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg1" translatesAutoresizingMaskIntoConstraints="NO" id="yf9-Mr-4jZ">
                                 <rect key="frame" x="0.0" y="-20" width="600" height="640"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejc-ix-sTL">
                                 <rect key="frame" x="20" y="135" width="560" height="64"/>
@@ -71,7 +72,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLC-b7-T5k">
-                                <rect key="frame" x="20" y="279" width="560" height="64"/>
+                                <rect key="frame" x="20" y="528" width="560" height="64"/>
                                 <color key="backgroundColor" red="0.85939472849999998" green="0.1044729579" blue="0.1820319316" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="8VG-c9-Ipp"/>
@@ -97,12 +98,14 @@
                             <constraint firstItem="ejc-ix-sTL" firstAttribute="leading" secondItem="Yc4-aQ-PdR" secondAttribute="leadingMargin" id="cab-hw-rlU"/>
                             <constraint firstItem="ejc-ix-sTL" firstAttribute="leading" secondItem="kE1-cx-rPG" secondAttribute="leading" id="cpQ-Ko-A8u"/>
                             <constraint firstItem="XLC-b7-T5k" firstAttribute="top" secondItem="kE1-cx-rPG" secondAttribute="bottom" constant="8" id="eZw-MF-F8P"/>
+                            <constraint firstItem="OsE-PQ-SLs" firstAttribute="top" secondItem="XLC-b7-T5k" secondAttribute="bottom" constant="8" id="hAZ-vN-bSx"/>
                             <constraint firstItem="ejc-ix-sTL" firstAttribute="top" secondItem="Sbw-8r-fNF" secondAttribute="bottom" constant="71" id="qH4-p4-7Y2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XLC-b7-T5k" secondAttribute="trailing" id="qoE-ZP-t0u"/>
                             <constraint firstItem="kE1-cx-rPG" firstAttribute="top" secondItem="ejc-ix-sTL" secondAttribute="bottom" constant="8" id="zPb-7s-hqG"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="eZw-MF-F8P"/>
                                 <exclude reference="KDZ-IU-FKR"/>
                             </mask>
                         </variation>
