@@ -324,7 +324,6 @@
 				TargetAttributes = {
 					17F098A11CE1A6AB009ABE02 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 5222JS844K;
 					};
 					17F098B81CE1A6AB009ABE02 = {
 						CreatedOnToolsVersion = 7.3;
@@ -670,6 +669,7 @@
 			baseConfigurationReference = 3CA886539CBB635BC21ED771 /* Pods-BookSearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BookSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -684,6 +684,7 @@
 			baseConfigurationReference = 61F41FEFE5A6938907E41ECF /* Pods-BookSearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BookSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
