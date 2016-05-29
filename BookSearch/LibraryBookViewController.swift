@@ -17,6 +17,7 @@ class LibraryBookViewController: UIViewController{
     var sendBookList:[String]?
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    var userName = String()
     
     @IBAction func loginButton(sender: AnyObject) {
         // Do any additional setup after loading the view, typically from a nib.
@@ -90,6 +91,13 @@ class LibraryBookViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Login"
+        
+        
+        let filename:NSString = self.filePath("properties.plist")
+        if NSFileManager.defaultManager().fileExistsAtPath(filename as String) {
+            let data:NSArray = NSArray(contentsOfFile: filename as String)!
+            userNameTextField.text = data.objectAtIndex(0) as? String
+        }
 
     }
     
@@ -106,16 +114,6 @@ class LibraryBookViewController: UIViewController{
         self.presentViewController(loginError, animated: true, completion: nil)
     }
     
-    /*
-    func getHtmlString(String url) -> String {
-        return ""
-    }
-     */
-    
-   // func loginUniAccount() -> String {
-     //   <#function body#>
-    //}
-
     
     //check the string if has two keywords inside
     func findKeyWords(origin: String, keyWords1 :String, keyWords2 :String) -> Bool {
@@ -164,6 +162,14 @@ class LibraryBookViewController: UIViewController{
                 }
             }
         }
+        
+        let filename:NSString = self.filePath("properties.plist")
+        print(filename as String)
+        let data:NSMutableArray = NSMutableArray()
+        
+        data.addObject(userNameTextField.text!)
+        data.writeToFile(filename as String, atomically: true)
+        
         
         if errorCheck{
             errorInput();
@@ -274,6 +280,13 @@ class LibraryBookViewController: UIViewController{
         
         //-> [String: String]
         //return nil
+    }
+    
+    func filePath(filename: NSString) -> NSString {
+        let mypaths:NSArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        let mydocpath:NSString = mypaths.objectAtIndex(0) as! NSString
+        let filepath = mydocpath.stringByAppendingPathComponent(filename as String)
+        return filepath
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
