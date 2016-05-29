@@ -17,7 +17,7 @@ class LibraryBookViewController: UIViewController{
     var sendBookList:[String]?
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    var userName = String()
+    var receiveStudentCode:String?
     
     @IBAction func loginButton(sender: AnyObject) {
         // Do any additional setup after loading the view, typically from a nib.
@@ -92,12 +92,15 @@ class LibraryBookViewController: UIViewController{
         super.viewDidLoad()
         self.title = "Login"
         
-        
+        //to load the information from storage
         let filename:NSString = self.filePath("properties.plist")
         if NSFileManager.defaultManager().fileExistsAtPath(filename as String) {
             let data:NSArray = NSArray(contentsOfFile: filename as String)!
             userNameTextField.text = data.objectAtIndex(0) as? String
         }
+        
+        //load the information from camera
+        passwordTextField.text = receiveStudentCode
 
     }
     

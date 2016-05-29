@@ -27,7 +27,7 @@ UIAlertViewDelegate{
     var output:AVCaptureMetadataOutput!
     var session:AVCaptureSession!
     var preview:AVCaptureVideoPreviewLayer!
-    var sendISBNcode:String = ""
+    var sendBarCode:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,8 +139,15 @@ UIAlertViewDelegate{
         //let doneAction = UIAlertAction(title: "Done", style: .Default, handler: {(action) in})
         //showBarcoed.addAction(doneAction)
         //self.presentViewController(showBarcoed, animated: true, completion: nil)
-        sendISBNcode = stringValue!
-        performSegueWithIdentifier("showBookDetail", sender: self)
+        sendBarCode = stringValue!
+        
+        // print("Scan code number of charaters count \()")
+        // student code number will be 14 charaters
+        if sendBarCode.characters.count != 14{
+            performSegueWithIdentifier("showBookDetail", sender: self)
+        }else{
+            performSegueWithIdentifier("showStudentCode", sender: self)
+        }
         
     }
     
@@ -152,11 +159,16 @@ UIAlertViewDelegate{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "showBookDetail"{
+        if segue.identifier == "showStudentCode"{
+            let show = segue.destinationViewController as! LibraryBookViewController
+            show.receiveStudentCode = sendBarCode
+            
+        }else if segue.identifier == "showBookDetail"{
             let show = segue.destinationViewController as! BookDetailViewController
             
-            show.receiveISBN = sendISBNcode
+            show.receiveISBN = sendBarCode
         }
+        
+        
     }
 }
