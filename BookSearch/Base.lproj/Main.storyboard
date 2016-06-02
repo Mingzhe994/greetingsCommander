@@ -126,7 +126,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="libraryList" rowHeight="149" id="bOS-VE-3ek" customClass="LibraryBookListTableViewCell" customModule="BookSearch" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="149"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="149"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bOS-VE-3ek" id="Y8m-9k-pcj">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="148"/>
@@ -524,8 +524,8 @@
         <image name="bg1" width="1024" height="768"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="VM3-0s-9ry"/>
         <segue reference="iUy-EE-bAZ"/>
-        <segue reference="yzQ-HF-DBI"/>
         <segue reference="TbM-Yv-1w5"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -20,71 +20,83 @@ class LibraryBookViewController: UIViewController{
     var receiveStudentCode:String?
     
     @IBAction func loginButton(sender: AnyObject) {
-        // Do any additional setup after loading the view, typically from a nib.
-        let apiBaseURL = "https://iii.library.uow.edu.au/patroninfo"
-        let urlComponents = NSURLComponents(string: apiBaseURL)!
         
-        let name = userNameTextField.text//"Mingzhe Zhang"
-        let code = passwordTextField.text//"20009101798905"
-        
-        if(name == "" || code == ""){
-            errorInput()
-            return
-        }
-        
-        let numQuery: NSURLQueryItem = NSURLQueryItem(name: "name", value: name)
-        let rndQuery: NSURLQueryItem = NSURLQueryItem(name: "code", value: code)
-        
-        urlComponents.queryItems = [numQuery, rndQuery]
-        let url = urlComponents.URL!
-        
-        let request = NSMutableURLRequest(URL: url)
-        
-        //request.HTTPMethod = "GET"
-        request.timeoutInterval = 5
-        request.HTTPMethod = "Get"
-        
-        
-        let session = NSURLSession.sharedSession()
-        
-        let task = session.dataTaskWithRequest(request){
-            (data, response, error) -> Void in
+        if Reachability.isConnectedToNetwork() == true {
+            // Do any additional setup after loading the view, typically from a nib.
+            let apiBaseURL = "https://iii.library.uow.edu.au/patroninfo"
+            let urlComponents = NSURLComponents(string: apiBaseURL)!
             
-            //Something stuffed up:
-        if let e = error  {
-                
-            print("error")
-            print(e.localizedDescription)
-                
-            return
-                
-                //Check for issues with the status code:
-        } else if let d = data, let r = response as? NSHTTPURLResponse{
-                
-                
-            //perform the cast:
-            print(r.statusCode)
+            let name = userNameTextField.text//"Mingzhe Zhang"
+            let code = passwordTextField.text//"20009101798905"
             
-            if (r.statusCode == 200){
-                print("It worked")
-                
-                let resultString:String = NSString(data: d, encoding:NSUTF8StringEncoding)! as String
-                //print(resultString)
-                    
-                //You MUST perform UI updates on the main thread:
-                dispatch_async(dispatch_get_main_queue(), {
-                    
-                        self.getBorrowIngBookList(resultString)
-                    
-                })
+            if(name == "" || code == ""){
+                errorInput()
                 return
             }
+            
+            let numQuery: NSURLQueryItem = NSURLQueryItem(name: "name", value: name)
+            let rndQuery: NSURLQueryItem = NSURLQueryItem(name: "code", value: code)
+            
+            urlComponents.queryItems = [numQuery, rndQuery]
+            let url = urlComponents.URL!
+            
+            let request = NSMutableURLRequest(URL: url)
+            
+            //request.HTTPMethod = "GET"
+            request.timeoutInterval = 5
+            request.HTTPMethod = "Get"
+            
+            
+            let session = NSURLSession.sharedSession()
+            
+            let task = session.dataTaskWithRequest(request){
+                (data, response, error) -> Void in
                 
-        }
+                //Something stuffed up:
+                if let e = error  {
+                    
+                    print("error")
+                    print(e.localizedDescription)
+                    
+                    return
+                    
+                    //Check for issues with the status code:
+                } else if let d = data, let r = response as? NSHTTPURLResponse{
+                    
+                    
+                    //perform the cast:
+                    print(r.statusCode)
+                    
+                    if (r.statusCode == 200){
+                        print("It worked")
+                        
+                        let resultString:String = NSString(data: d, encoding:NSUTF8StringEncoding)! as String
+                        //print(resultString)
+                        
+                        //You MUST perform UI updates on the main thread:
+                        dispatch_async(dispatch_get_main_queue(), {
+                            
+                            self.getBorrowIngBookList(resultString)
+                            
+                        })
+                        return
+                    }
+                    
+                }
+                
+            }
+            //This is important
+            task.resume()
+        } else {
+            
+            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "Done", style: .Cancel, handler: nil)
+            alert.addAction(cancelAction)
+            self.presentViewController(alert, animated: true, completion: nil)
             
         }
-        //This is important
-        task.resume()
+        
+        
 
     }
     

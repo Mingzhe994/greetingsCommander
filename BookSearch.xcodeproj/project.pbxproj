@@ -28,6 +28,7 @@
 		4950E14212EF3024081622D8 /* Pods_BookSearchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2EF1A1DE8AC2793EAAC86E1 /* Pods_BookSearchUITests.framework */; };
 		A110C204A18EB324F33FEED9 /* Pods_BookSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BACB774F6ACEF12140CD3EE1 /* Pods_BookSearch.framework */; };
 		A3E05A478767CD4FB93616D4 /* Pods_BookSearchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D8C1487C3790D28DC622340 /* Pods_BookSearchTests.framework */; };
+		D00F90A91D00580B00890AFD /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F90A81D00580B00890AFD /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		B2EF1A1DE8AC2793EAAC86E1 /* Pods_BookSearchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookSearchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F46AE2E32FEEEA14E474CD /* Pods-BookSearchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookSearchUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BookSearchUITests/Pods-BookSearchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BACB774F6ACEF12140CD3EE1 /* Pods_BookSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BookSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D00F90A81D00580B00890AFD /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = BookSearch/Reachability.swift; sourceTree = "<group>"; };
 		F3E67F56A7DCB6874C1EB783 /* Pods-BookSearchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BookSearchUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BookSearchUITests/Pods-BookSearchUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,6 +186,7 @@
 		17F098991CE1A6AB009ABE02 = {
 			isa = PBXGroup;
 			children = (
+				D00F90A81D00580B00890AFD /* Reachability.swift */,
 				17F098A41CE1A6AB009ABE02 /* BookSearch */,
 				17F098BC1CE1A6AB009ABE02 /* BookSearchTests */,
 				17F098C71CE1A6AB009ABE02 /* BookSearchUITests */,
@@ -512,6 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D00F90A91D00580B00890AFD /* Reachability.swift in Sources */,
 				179E926F1CF05AAB00C84953 /* LibraryBookViewController.swift in Sources */,
 				17F098DB1CE1AA10009ABE02 /* UserCameraViewController.swift in Sources */,
 				17F098A81CE1A6AB009ABE02 /* ViewController.swift in Sources */,
@@ -676,6 +680,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Stuart-Zhang.BookSearch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -691,6 +696,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Stuart-Zhang.BookSearch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
