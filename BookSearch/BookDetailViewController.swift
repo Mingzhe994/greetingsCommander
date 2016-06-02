@@ -76,98 +76,109 @@ class BookDetailViewController:UIViewController  {
         //let url = urlComponents.URL!
         //let request = NSMutableURLRequest(URL: urlComponents!)
 
-        
-        print(urlComponents)
-        let session = NSURLSession.sharedSession()
-        
-        let task = session.dataTaskWithURL(urlComponents!){
-            (data, response, error) -> Void in
+        if Reachability.isConnectedToNetwork() == true {
+            print(urlComponents)
+            let session = NSURLSession.sharedSession()
             
-            //Something stuffed up:
-            if let e = error  {
+            let task = session.dataTaskWithURL(urlComponents!){
+                (data, response, error) -> Void in
                 
-                print("error")
-                print(e.localizedDescription)
-                
-                return
-                
-                //Check for issues with the status code:
-            } else if let d = data, let r = response as? NSHTTPURLResponse{
-                
-                
-                //perform the cast:
-                print(r.statusCode)
-                
-                if (r.statusCode == 200){
-                    print("It worked")
-                    var arrayOfTitles: [String]?
-                    var subTitle: [String]?
-                    var arrayOfAuthors: [String] = [String]()
-                    var publishDate: [String]?
-                    var description: [String]?
+                //Something stuffed up:
+                if let e = error  {
                     
-                    do {
-                        let anyObj:NSDictionary = try NSJSONSerialization.JSONObjectWithData(d, options: []) as! NSDictionary
-                        // use anyObj here
-
-                        arrayOfTitles = anyObj.valueForKeyPath("items.volumeInfo.title") as? [String] ?? ["No data"]
-                        subTitle = anyObj.valueForKeyPath("items.volumeInfo.subtitle") as? [String] ?? ["No data"]
-                        
-                        let a = anyObj.valueForKeyPath("items.volumeInfo.authors") as? NSArray
-                        if a != nil {
-                            for tmpa in a! {
-                                let b = tmpa as? NSArray ?? ["No data"]
-                                for tmpb in b!{
-                                    arrayOfAuthors.append(tmpb as! String)
-                                
-                                }
-                            }
-                        }else{
-                            arrayOfAuthors.append("No data")
-                        }
-                        publishDate = anyObj.valueForKeyPath("items.volumeInfo.publishedDate") as? [String] ?? ["No data"]
-                        description = anyObj.valueForKeyPath("items.volumeInfo.description") as? [String] ?? ["No data"]
-                        
-                        self.imagelinks = anyObj.valueForKeyPath("items.volumeInfo.imageLinks.smallThumbnail") as? [String] ?? ["noData"]
-                        //self.bookImageView.image = UIImage(
-                        //print(imagelinks)
-                    } catch let error as NSError {
-                        print("json error: \(error.localizedDescription)")
-                    }
-                    
-                    //print(arrayOfAuthors)
-                    
-                    //You MUST perform UI updates on the main thread:
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.bookTitle.text = arrayOfTitles![0]
-                        self.bookSubTitle.text = subTitle![0]
-                        
-                        self.publishYear.text = publishDate![0]
-                        self.bookDescription.text = description![0]
-                        self.bookAuthorName.text = arrayOfAuthors.joinWithSeparator("\n")
-                        
-                        if self.imagelinks![0] != "noData"{
-                            let imageURL = NSURL(string: self.imagelinks![0])
-                            self.bookImageView.sd_setImageWithURL(imageURL)
-                        }else{
-                            self.bookImageView.image = UIImage(named: self.imagelinks![0])
-                        }
-                    })
-                    
-                    
+                    print("error")
+                    print(e.localizedDescription)
                     
                     return
+                    
+                    //Check for issues with the status code:
+                } else if let d = data, let r = response as? NSHTTPURLResponse{
+                    
+                    
+                    //perform the cast:
+                    print(r.statusCode)
+                    
+                    if (r.statusCode == 200){
+                        print("It worked")
+                        var arrayOfTitles: [String]?
+                        var subTitle: [String]?
+                        var arrayOfAuthors: [String] = [String]()
+                        var publishDate: [String]?
+                        var description: [String]?
+                        
+                        do {
+                            let anyObj:NSDictionary = try NSJSONSerialization.JSONObjectWithData(d, options: []) as! NSDictionary
+                            // use anyObj here
+                            
+                            arrayOfTitles = anyObj.valueForKeyPath("items.volumeInfo.title") as? [String] ?? ["No data"]
+                            subTitle = anyObj.valueForKeyPath("items.volumeInfo.subtitle") as? [String] ?? ["No data"]
+                            
+                            let a = anyObj.valueForKeyPath("items.volumeInfo.authors") as? NSArray
+                            if a != nil {
+                                for tmpa in a! {
+                                    let b = tmpa as? NSArray ?? ["No data"]
+                                    for tmpb in b!{
+                                        arrayOfAuthors.append(tmpb as! String)
+                                        
+                                    }
+                                }
+                            }else{
+                                arrayOfAuthors.append("No data")
+                            }
+                            publishDate = anyObj.valueForKeyPath("items.volumeInfo.publishedDate") as? [String] ?? ["No data"]
+                            description = anyObj.valueForKeyPath("items.volumeInfo.description") as? [String] ?? ["No data"]
+                            
+                            self.imagelinks = anyObj.valueForKeyPath("items.volumeInfo.imageLinks.smallThumbnail") as? [String] ?? ["noData"]
+                            //self.bookImageView.image = UIImage(
+                            //print(imagelinks)
+                        } catch let error as NSError {
+                            print("json error: \(error.localizedDescription)")
+                        }
+                        
+                        //print(arrayOfAuthors)
+                        
+                        //You MUST perform UI updates on the main thread:
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.bookTitle.text = arrayOfTitles![0]
+                            self.bookSubTitle.text = subTitle![0]
+                            
+                            self.publishYear.text = publishDate![0]
+                            self.bookDescription.text = description![0]
+                            self.bookAuthorName.text = arrayOfAuthors.joinWithSeparator("\n")
+                            
+                            if self.imagelinks![0] != "noData"{
+                                let imageURL = NSURL(string: self.imagelinks![0])
+                                self.bookImageView.sd_setImageWithURL(imageURL)
+                            }else{
+                                self.bookImageView.image = UIImage(named: self.imagelinks![0])
+                            }
+                        })
+                        
+                        
+                        
+                        return
+                    }
+                    
                 }
                 
             }
+            let saveButton : UIBarButtonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BookDetailViewController.saveBookDetail))
             
+            self.navigationItem.rightBarButtonItem = saveButton
+            
+            //This is important
+            task.resume()
+            
+            
+            
+        } else {
+            let alert = UIAlertController(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "Done", style: .Cancel, handler: nil)
+            alert.addAction(cancelAction)
+            self.presentViewController(alert, animated: true, completion: nil)
         }
-        let saveButton : UIBarButtonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BookDetailViewController.saveBookDetail))
         
-        self.navigationItem.rightBarButtonItem = saveButton
         
-        //This is important
-        task.resume()
         
     }
     
