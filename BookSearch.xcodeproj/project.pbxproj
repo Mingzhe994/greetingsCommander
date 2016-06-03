@@ -15,6 +15,8 @@
 		172F45ED1CF4C9FB00F6CE9C /* LibraryBookListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172F45EC1CF4C9FB00F6CE9C /* LibraryBookListTableViewCell.swift */; };
 		179E926F1CF05AAB00C84953 /* LibraryBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E926E1CF05AAB00C84953 /* LibraryBookViewController.swift */; };
 		179E92761CF05ADC00C84953 /* LibraryBookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179E92751CF05ADC00C84953 /* LibraryBookTableViewController.swift */; };
+		17CF00001D00B34F006E5B70 /* BookItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CFFFFF1D00B34F006E5B70 /* BookItemList.swift */; };
+		17CFFFFE1D00B2F3006E5B70 /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CFFFFD1D00B2F3006E5B70 /* BookItem.swift */; };
 		17F098A61CE1A6AB009ABE02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F098A51CE1A6AB009ABE02 /* AppDelegate.swift */; };
 		17F098A81CE1A6AB009ABE02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F098A71CE1A6AB009ABE02 /* ViewController.swift */; };
 		17F098AB1CE1A6AB009ABE02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17F098A91CE1A6AB009ABE02 /* Main.storyboard */; };
@@ -57,6 +59,8 @@
 		172F45EC1CF4C9FB00F6CE9C /* LibraryBookListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryBookListTableViewCell.swift; sourceTree = "<group>"; };
 		179E926E1CF05AAB00C84953 /* LibraryBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryBookViewController.swift; sourceTree = "<group>"; };
 		179E92751CF05ADC00C84953 /* LibraryBookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryBookTableViewController.swift; sourceTree = "<group>"; };
+		17CFFFFD1D00B2F3006E5B70 /* BookItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookItem.swift; sourceTree = "<group>"; };
+		17CFFFFF1D00B34F006E5B70 /* BookItemList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookItemList.swift; sourceTree = "<group>"; };
 		17F098A21CE1A6AB009ABE02 /* BookSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17F098A51CE1A6AB009ABE02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17F098A71CE1A6AB009ABE02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +183,8 @@
 				179E926E1CF05AAB00C84953 /* LibraryBookViewController.swift */,
 				179E92751CF05ADC00C84953 /* LibraryBookTableViewController.swift */,
 				172F45EC1CF4C9FB00F6CE9C /* LibraryBookListTableViewCell.swift */,
+				17CFFFFD1D00B2F3006E5B70 /* BookItem.swift */,
+				17CFFFFF1D00B34F006E5B70 /* BookItemList.swift */,
 			);
 			name = UniLibrary;
 			sourceTree = "<group>";
@@ -518,10 +524,12 @@
 				D00F90A91D00580B00890AFD /* Reachability.swift in Sources */,
 				179E926F1CF05AAB00C84953 /* LibraryBookViewController.swift in Sources */,
 				17F098DB1CE1AA10009ABE02 /* UserCameraViewController.swift in Sources */,
+				17CF00001D00B34F006E5B70 /* BookItemList.swift in Sources */,
 				17F098A81CE1A6AB009ABE02 /* ViewController.swift in Sources */,
 				17F098A61CE1A6AB009ABE02 /* AppDelegate.swift in Sources */,
 				17F098AE1CE1A6AB009ABE02 /* BookSearch.xcdatamodeld in Sources */,
 				170AA3FF1CE32BA0004B60FA /* BookDataModel.swift in Sources */,
+				17CFFFFE1D00B2F3006E5B70 /* BookItem.swift in Sources */,
 				172F45ED1CF4C9FB00F6CE9C /* LibraryBookListTableViewCell.swift in Sources */,
 				179E92761CF05ADC00C84953 /* LibraryBookTableViewController.swift in Sources */,
 				170AA4011CE36D83004B60FA /* BookListTableViewController.swift in Sources */,

@@ -12,12 +12,17 @@ import UIKit
 import AVFoundation
 import Kanna
 
+
+
 class LibraryBookViewController: UIViewController{
 
     var sendBookList:[String]?
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     var receiveStudentCode:String?
+    var studentName: String?
+    var isSameName:Bool = false
+    var sendNameChange: Bool?
     
     @IBAction func loginButton(sender: AnyObject) {
         
@@ -108,7 +113,8 @@ class LibraryBookViewController: UIViewController{
         let filename:NSString = self.filePath("properties.plist")
         if NSFileManager.defaultManager().fileExistsAtPath(filename as String) {
             let data:NSArray = NSArray(contentsOfFile: filename as String)!
-            userNameTextField.text = data.objectAtIndex(0) as? String
+            studentName = data.objectAtIndex(0) as? String
+            userNameTextField.text = studentName
         }
         
         //load the information from camera
@@ -130,37 +136,7 @@ class LibraryBookViewController: UIViewController{
     }
     
     
-    //check the string if has two keywords inside
-    func findKeyWords(origin: String, keyWords1 :String, keyWords2 :String) -> Bool {
-        if (origin.rangeOfString(keyWords1) != nil) {
-            if (origin.rangeOfString(keyWords2) != nil){
-                return true;
-            }
-        }
-        return false;
-    }
- 
-    //this method are only fetch the number string in html like
-    //a href="/patroninfo/1265222/items"
-    
-    func fetchPageNumber(origin: String, check :Int, format: Character) -> String {
-        var tmp = String()
-        var startFectch = 0;
-        for c in origin.characters{
-            
-            if(c == format){
-                startFectch += 1
-            }
-            
-            if startFectch == check && c != format{
-                tmp += String(c)
-            }
-        }
-        return tmp
-    }
-    
-    
-    //get borrowing book list
+      //get borrowing book list
     func getBorrowIngBookList(origin: String)  {
         //self.label.text = resultString
         var bookList = [String]();
@@ -178,12 +154,18 @@ class LibraryBookViewController: UIViewController{
             }
         }
         
-        let filename:NSString = self.filePath("properties.plist")
-        print(filename as String)
-        let data:NSMutableArray = NSMutableArray()
+        //to change the name if change
+        if userNameTextField.text == studentName{
+            isSameName = true
+        }else{//if false the new account of books will override all the book notification before
+            let filename:NSString = self.filePath("properties.plist")
+            print(filename as String)
+            let data:NSMutableArray = NSMutableArray()
+            
+            data.addObject(userNameTextField.text!)
+            data.writeToFile(filename as String, atomically: true)
+        }
         
-        data.addObject(userNameTextField.text!)
-        data.writeToFile(filename as String, atomically: true)
         
         
         if errorCheck{
@@ -244,6 +226,8 @@ class LibraryBookViewController: UIViewController{
                         for link in doc!.xpath("//tbody | //tr") {
                             
                             if link.className == "patFuncEntry" {
+                                
+                                
                                 var title: String?
                                 var dueDate: String?
 
@@ -276,6 +260,7 @@ class LibraryBookViewController: UIViewController{
                     //You MUST perform UI updates on the main thread:
                     dispatch_async(dispatch_get_main_queue(), {
                         self.sendBookList = bookList
+                        self.sendNameChange = self.isSameName
                         self.performSegueWithIdentifier("showBorrowingBooks", sender: self)
 
                     })
@@ -291,12 +276,9 @@ class LibraryBookViewController: UIViewController{
         
         //This is important
         task.resume()
-
-        
-        //-> [String: String]
-        //return nil
     }
     
+    //set the file to save name
     func filePath(filename: NSString) -> NSString {
         let mypaths:NSArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
         let mydocpath:NSString = mypaths.objectAtIndex(0) as! NSString
@@ -309,7 +291,41 @@ class LibraryBookViewController: UIViewController{
         // Pass the selected object to the new view controller.
         if segue.identifier == "showBorrowingBooks" {
             let nav = segue.destinationViewController as! LibraryBookTableViewController
+            nav.receiveNameChange = sendNameChange
             nav.receiveBookList = sendBookList
         }
     }
+    
+    //check the string if has two keywords inside
+    func findKeyWords(origin: String, keyWords1 :String, keyWords2 :String) -> Bool {
+        if (origin.rangeOfString(keyWords1) != nil) {
+            if (origin.rangeOfString(keyWords2) != nil){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    //this method are only fetch the number string in html like
+    //a href="/patroninfo/1265222/items"
+    
+    func fetchPageNumber(origin: String, check :Int, format: Character) -> String {
+        var tmp = String()
+        var startFectch = 0;
+        for c in origin.characters{
+            
+            if(c == format){
+                startFectch += 1
+            }
+            
+            if startFectch == check && c != format{
+                tmp += String(c)
+            }
+        }
+        return tmp
+    }
+    
+    
+
+   
 }

@@ -173,7 +173,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "179"
             endingLineNumber = "179"
-            landmarkName = "saveBookDetail(_:)"
+            landmarkName = "getBookInfo(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

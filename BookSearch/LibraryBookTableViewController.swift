@@ -10,6 +10,7 @@ import UIKit
 
 class LibraryBookTableViewController: UITableViewController {
     var receiveBookList: [String]?
+    var receiveNameChange: Bool?
     
     override func viewDidLoad() {
         self.title = "Checkout List"
@@ -17,13 +18,29 @@ class LibraryBookTableViewController: UITableViewController {
         let backButton : UIBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(BookDetailViewController.backToRootView))
         
         self.navigationItem.leftBarButtonItem = backButton
-
+        
+        //if user have no borrowing data
         if receiveBookList?.count == 0{
             receiveBookList?.append("There is no book need to return")
             receiveBookList?.append("")
         }else {
-            print("dam")
+            print("Get books Detail!")
+            let countLimit = (((receiveBookList?.count)!/2)-1 )
+            UIApplication.sharedApplication().cancelAllLocalNotifications()
+            for i in 0...countLimit {
+                
+                let strDate = receiveBookList![i*2+1]
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "dd-MM-yy"
+                print(dateFormatter.dateFromString( strDate )!)
+                
+                let todoItem =  BookItem(deadline:  dateFormatter.dateFromString( strDate )! , title: receiveBookList![i*2], UUID: NSUUID().UUIDString)
+                BookItemList.sharedInstance.addItem(todoItem) // schedule a local notification to persist this item
+            }
+            
         }
+        
+        
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -115,5 +132,7 @@ class LibraryBookTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+
 
 }

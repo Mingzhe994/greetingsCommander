@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BookSearch/LibraryBookViewController.swift"
-            timestampString = "486218817.265593"
+            timestampString = "486634738.704329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "getBorrowIngBookList(_:)"
             landmarkType = "5">
          </BreakpointContent>
