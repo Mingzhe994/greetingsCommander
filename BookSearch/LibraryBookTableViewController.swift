@@ -29,12 +29,20 @@ class LibraryBookTableViewController: UITableViewController {
             UIApplication.sharedApplication().cancelAllLocalNotifications()
             for i in 0...countLimit {
                 
+                //set notification variable 
                 let strDate = receiveBookList![i*2+1]
                 let dateFormatter = NSDateFormatter()
                 dateFormatter.dateFormat = "dd-MM-yy"
-                print(dateFormatter.dateFromString( strDate )!)
+                let deadline = dateFormatter.dateFromString( strDate )!
                 
-                let todoItem =  BookItem(deadline:  dateFormatter.dateFromString( strDate )! , title: receiveBookList![i*2], UUID: NSUUID().UUIDString)
+                //test the notification use
+                //let testDate = NSDate().dateByAddingTimeInterval(-60*2)
+                
+                
+                // the notification will show before 3 days
+                let deadlineBefore = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.Day, value: -3, toDate: deadline, options: NSCalendarOptions.init(rawValue: 0))!
+                print(deadlineBefore)
+                let todoItem =  BookItem(deadline:  deadlineBefore, title: receiveBookList![i*2], UUID: NSUUID().UUIDString)
                 BookItemList.sharedInstance.addItem(todoItem) // schedule a local notification to persist this item
             }
             
